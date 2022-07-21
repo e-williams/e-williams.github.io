@@ -27,7 +27,7 @@ header {
   margin: 0 0 0 19px;
 }
 #flexitem_header-2 {
-  flex: 0 0 614px;
+  flex: 0 0 536px;
 }
 h1 {
   font-size: 1.75rem;
@@ -43,7 +43,7 @@ header p {
 header p:first-of-type {
   margin-bottom: 0;
 }
-header p a:link {
+header p a:link { /* unvisited link */
   text-decoration: none;
   color:rgb(113, 113, 113);
 }
@@ -54,24 +54,34 @@ header p a:hover {
   text-decoration: underline;
   color:rgb(0, 0, 0);
 }
-#flexitem_header-3  a {
+#flexitem_header-3 {
+  flex: 0 0 84px;
+}
+#flexitem_header-3 a {
   font-family: Verdana, Tahoma, sans-serif;
   font-size: .9rem;
   letter-spacing: .2rem;
-  color:rgb(99, 99, 99);
+  color:rgb(0, 0, 0);
+  padding: 5px 0 5px 0;
+  border-bottom: 1px solid black;
+}
+#flexitem_header-4 a {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: .9rem;
+  letter-spacing: .2rem;
   padding: 5px 0 5px 0;
 }
-#flexitem_header-3 a:link {
+#flexitem_header-4 a:link {
   text-decoration: none;
-  color: rgb(255, 255, 247);
+  color:rgb(113, 113, 113);
 }
-#flexitem_header-3 a:visited {
-  color:rgb(99, 99, 99);
+#flexitem_header-4 a:visited {
+  color:rgb(113, 113, 113);
 }
-#flexitem_header-3 a:hover {
+#flexitem_header-4 a:hover {
   border-bottom: 1px solid black;
   color:rgb(0, 0, 0);
-}
+}  
 #content {
   width: 680px;
   margin-left: 202px;
@@ -194,7 +204,10 @@ footer {
         </p>
       </div>
       <div id="flexitem_header-3">
-        <a href="https://github.com/e-williams">PORTFOLIO</a>
+        <a>ABOUT</a>
+      </div>
+      <div id="flexitem_header-4">
+        <a href="https://htmlpreview.github.io/?https://github.com/e-williams/e-williams.github.io/blob/master/index.html">PORTFOLIO</a>
       </div>
     </header>
     <div id="content">
