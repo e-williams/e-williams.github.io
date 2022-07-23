@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is the Extra Credit of Homework 2 for CNIT133.">
+    <title>CNIT133 Homework 2, Extra Credit</title>
+    <link rel="stylesheet" type="text/css" href="hw2.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function process()
+            {
+            //declare variables
+            var usdinput, usdvalue, v_usd, v_euro, v_cd, v_hkd, v_jy, v_mp;
+            
+            //store input string into a variable
+            usdvalue = document.getElementById("usdinput").value;
+                
+            //provide alert message if there is no input string value; can only use "" to compare string values!
+            if (usdvalue == "")
+                {
+                alert ("You must input a number of U.S. dollars.");
+            }
+            else
+                {
+            //convert the contents of the variable into a float with two decimal places
+            v_usd = parseFloat(usdvalue);
+        
+            //perform arithmetic conversions
+            v_euro = (v_usd * 0.89).toFixed(2); //.toFixed produces a sting value
+            v_cd = (v_usd * 1.31).toFixed(2);
+            v_hkd = (v_usd * 7.80).toFixed(2);
+            v_jy = (v_usd * 108.38).toFixed(2);
+            v_mp = (v_usd * 19.11).toFixed(2);
+                    
+            //use .innerHTML instead of .value when sending results to elements other than form elements like <textarea> and <input> text box.
+            document.getElementById("euro").innerHTML = v_euro;
+            document.getElementById("cd").innerHTML = v_cd;
+            document.getElementById("hkd").innerHTML = v_hkd;
+            document.getElementById("jy").innerHTML = v_jy;
+            document.getElementById("mp").innerHTML = v_mp;
+            }
+        }
+        $(document).ready(function(){
+            
+            $("#usdinput").click(function(){
+                $("#usdinput").css("background-color", "yellow");
+            });
+            
+            $("#show_hide").click(function(){
+                $("#view").slideToggle("slow");
+            });
+        });     
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw2.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 2, Extra Credit</h1>
+    </div>
+    <div class="container">
+        <h3 id="show_hide">Click to Show/Hide Instructions</h3>
+        <h4 id="view">Enter an amount, in U.S. dollars, at the bottom, right corner of the table:</h4>
+        <form name="myform">
+            <table class="ertable">
+                <tr>
+                    <td colspan="3" style="text-align:center"><strong>Monetary Exchange Rates</strong></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center"><strong>Currency</strong></td>
+                    <td style="text-align:center"><strong>Rate</strong></td>
+                    <td style="text-align:center"><strong>Value</strong></td>
+                </tr>
+                <tr>
+                    <td>Euro</td>
+                    <td style="text-align:right">0.89</td>
+                    <td style="text-align:right" id="euro"></td>
+                </tr>
+                <tr>
+                    <td>Canadian Dollar</td>
+                    <td style="text-align:right">1.31</td>
+                    <td style="text-align:right" id="cd"></td>
+                </tr>
+                <tr>
+                    <td>Hong Kong Dollar</td>
+                    <td style="text-align:right">7.80</td>
+                    <td style="text-align:right" id="hkd"></td>
+                </tr>
+                <tr>
+                    <td>Japanese Yen</td>
+                    <td style="text-align:right">108.38</td>
+                    <td style="text-align:right" id="jy"></td>
+                </tr>
+                <tr>
+                    <td>Mexican Peso</td>
+                    <td style="text-align:right">19.11</td>
+                    <td style="text-align:right" id="mp"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><strong>Enter Amount of U.S. Dollars</strong></td>
+                    <td><input type="number" style="width:5em" id="usdinput"></td>
+                </tr>
+            </table>
+            <br>
+            <input type="button" onclick="process()" value="SUBMIT">
+            <input type="reset" value="RESET" onClick="location.reload()">
+        </form>
+    </div>
+</body>
+</html>

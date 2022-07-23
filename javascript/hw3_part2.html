@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Part 2 of Homework 3 for CNIT133.">
+    <title>CNIT133 Homework 3, Part 2</title>
+    <link rel="stylesheet" type="text/css" href="hw3.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <!-- the tags to access the jQuery UI CSS file, jQuery .js file, and jQuery UI .js file -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script>
+        // jQuery code for tooltip
+        $(function(){
+            $( document ).tooltip();
+        });
+    </script>
+    <style>
+        /* CSS for tooltip */
+        label {
+            display: inline-block;
+            width: 5em;
+        }
+    </style>
+    <script>
+        function process()
+            {
+            //declare variables
+            var salesPer, s1, s2, s3, s4, n1, n2, n3, n4, amt1, amt2, amt3, amt4, totAmt, totWeek;
+            var errMsgSalesPer = "You must enter a salesperson's name";
+            var errMsgItems = "You must input numbers of value zero or greater.";
+            
+            //get input string values from form
+            salesPer = document.getElementById("inputSP").value;
+            s1 = document.getElementById("input1").value;
+            s2 = document.getElementById("input2").value;
+            s3 = document.getElementById("input3").value;
+            s4 = document.getElementById("input4").value;
+                
+            //validate input: if not valid, show error message, else proceed
+            if (salesPer=="")
+                {
+                document.getElementById("errOut").innerHTML=errMsgSalesPer;
+            }
+            else if (s1=="" || isNaN(s1) || s1<0 || s2=="" || isNaN(s2) || s2<0 ||
+                s3=="" || isNaN(s3) || s3<0 || s4=="" || isNaN(s4) || s4<0)
+                {
+                document.getElementById("errOut").innerHTML=errMsgItems;
+            }
+            else {
+                //send string inputs to "Number Sold" textboxes
+                document.myform.sold1.value = (s1);
+                document.myform.sold2.value = (s2);
+                document.myform.sold3.value = (s3);
+                document.myform.sold4.value = (s4);
+                
+                //convert input strings to integer numbers
+                n1 = parseInt(s1);
+                n2 = parseInt(s2);
+                n3 = parseInt(s3);
+                n4 = parseInt(s4);
+                
+                //calculate total amount for each item sold
+                amt1 = (n1 * 239.99);
+                amt2 = (n2 * 129.75);
+                amt3 = (n3 * 99.95);
+                amt4 = (n4 * 350.89);
+                
+                //round amounts to two decimal places
+                var amt1_round, amt2_round, amt3_round, amt4_round;
+                amt1_round = amt1.toFixed(2);
+                amt2_round = amt2.toFixed(2);
+                amt3_round = amt3.toFixed(2);
+                amt4_round = amt4.toFixed(2);
+                
+                //send amounts for each item to textboxes
+                document.myform.total1.value = (amt1_round);
+                document.myform.total2.value = (amt2_round);
+                document.myform.total3.value = (amt3_round);
+                document.myform.total4.value = (amt4_round);
+                
+                //caluclate total amount for all items sold
+                totAmt = (amt1 + amt2 + amt3 + amt4);
+                
+                //round total amount to two decimal places
+                var totAmt_round;
+                totAmt_round = totAmt.toFixed(2);
+                
+                //send total amount for all items to textbox
+                document.myform.totSold.value = (totAmt_round);
+                
+                //calculate total weekly earnings, which includes commission + $200 base pay
+                totWeek = (200.00 + (.09 * totAmt)).toFixed(2);
+                
+                //send total weekly earnings to textbox with name "totEarnings"
+                document.myform.totEarnings.value = (totWeek);
+            } // end else
+            
+            //clear any existing error message
+            if (document.myform.totEarnings.value != "")
+                {
+                document.getElementById("errOut").innerHTML = "";
+                }
+        } // end function process()
+        
+        function res() //triggered in "reset" input button; name cannot be "reset" or will cause error
+            {
+            document.getElementById("errOut").innerHTML=""; //resets "errOut" <div> to blank
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw3.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 3, Part 2</h1>
+    </div>
+    <h2>Weekly Earnings</h2>
+    <div class="container" style="width:28rem">
+        <form name="myform">
+            <div>  
+                Salesperson: <input type="text" id="inputSP" style="width:15em" title="Please make sure that the salesperson's name is spelled correctly.">
+            </div>
+            <div style="margin: 1em 0 .5em 0;">Input the number of items sold for each item number:</div>
+            <table id="tabInput2">
+                <tr>
+                    <td>Item 1:</td>
+                    <td><input type="text" id="input1"></td>
+                </tr>
+                <tr>
+                    <td>Item 2:</td>
+                    <td><input type="text" id="input2"></td>
+                </tr>
+                <tr>
+                    <td>Item 3:</td>
+                    <td><input type="text" id="input3"></td>
+                </tr>
+                <tr>
+                    <td>Item 4:</td>
+                    <td><input type="text" id="input4"></td>
+                </tr>
+            </table>
+            <div id="errOut" style="color:red;"></div>
+            <input type="button" onclick="process()" value="SUBMIT">
+            <input type="reset" value="RESET" onclick="res()">
+            <br><br>
+            <table id="tabResults2">
+                <tr>
+                    <th style="width:4em">Item #</th>
+                    <th>Price</th>
+                    <th>Number Sold</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>$239.99</td>
+                    <td><input type="text" readonly name="sold1"></td> <!-- results of "inputI1" sent here -->
+                    <td><input type="text" readonly name="total1"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>$129.75</td>
+                    <td><input type="text" readonly name="sold2"></td>
+                    <td><input type="text" readonly name="total2"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>$99.95</td>
+                    <td><input type="text" readonly name="sold3"></td>
+                    <td><input type="text" readonly name="total3"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>$350.89</td>
+                    <td><input type="text" readonly name="sold4"></td>
+                    <td><input type="text" readonly name="total4"></td>
+                </tr>
+                <tr>
+                    <td colspan= "3">Total Amount Sold:</td>
+                    <td><input type="text" readonly name="totSold"></td>
+                </tr>
+                <tr>
+                    <td colspan= "3">Total Weekly Earnings:</td>
+                    <td><input type="text" readonly name="totEarnings"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</body>
+</html>

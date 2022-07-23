@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Part 1 of Homework 3 for CNIT133.">
+    <title>CNIT133 Homework 3, Part 1</title>
+    <link rel="stylesheet" type="text/css" href="hw3.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script>
+        function process()
+            {
+            //declare variables
+            var sHW, sME, sFE, sP, hw, me, fe, p, finAvg, finGrade;
+            
+            var errMsgInput = "You must input a number from 0 to 100";
+                
+            //get input string values from form
+            sHW = document.getElementById("inputHA").value;
+            sME = document.getElementById("inputME").value;
+            sFE = document.getElementById("inputFE").value;
+            sP = document.getElementById("inputP").value;
+            
+            //validate input: if not valid, show error message, else proceed
+            if (sHW=="" || isNaN(sHW) || sHW<0 || sHW>100 ||
+                sME=="" || isNaN(sME) || sME<0 || sME>100 ||
+                sFE=="" || isNaN(sFE) || sFE<0 || sFE>100 ||
+                sP=="" || isNaN(sP) || sP<0 || sP>100)
+                {
+                document.getElementById("errOut").innerHTML=errMsgInput;   
+            }
+            else {
+                //convert input strings to numbers
+                hw = parseFloat(sHW);
+                me = parseFloat(sME);
+                fe = parseFloat(sFE);
+                p = parseFloat(sP);
+                
+                //calculate final average
+                finAvg = (.5 * hw) + (.2 * me) + (.2 * fe) + (.1 * p);
+            
+            //use switch statment to send final grade output and retake course message based on conditions if letter grade percentage ranges are TRUE
+            switch(true)
+                {
+                    case(finAvg>=90):
+                    document.getElementById("results").innerHTML=("The final average is " + Math.round(finAvg) +    //Math.round return number rounded to nearest integer
+                    "<br>The final letter grade is A")
+                    break;
+                    
+                    case(finAvg>=80):
+                    document.getElementById("results").innerHTML=("The final average is " + Math.round(finAvg) +
+                    "<br>The final letter grade is B")
+                    break;
+                    
+                    case(finAvg>=70):
+                    document.getElementById("results").innerHTML=("The final average is " + Math.round(finAvg) +
+                    "<br>The final letter grade is C")
+                    break;
+                    
+                    case(finAvg>=60):
+                    document.getElementById("results").innerHTML=("The final average is " + Math.round(finAvg) +
+                    "<br>The final letter grade is D <br> You must retake the course")
+                    break;
+                    
+                    default:
+                    document.getElementById("results").innerHTML=("The final average is " + Math.round(finAvg) +
+                    "<br>The final letter grade is F <br> You must retake the course")
+            } //end switch
+            } //end else
+            
+            //clear any existing error message
+            if (document.getElementById("results").innerHTML != "")
+                {
+                document.getElementById("errOut").innerHTML = "";
+            }
+        } //end function process()
+            
+        function res()    //triggered in "reset" input button; name cannot be "reset" or will cause error
+            {
+            document.getElementById("results").innerHTML = "";    //resets "results" <div> to blank (when need tags other than <input> reset)
+            document.getElementById("errOut").innerHTML = "";     //resets "errOut" <div> to blank
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw3.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 3, Part 1</h1>
+    </div>
+    <h2>Student Grades</h2>
+    <div class="container">
+        <form name="myform">
+            <table>
+                <tr>
+                    <td>Homework Average:</td>
+                    <td><input type="text" id="inputHA"></td>
+                </tr>
+                <tr>
+                    <td>Mid-term Exam Score:</td>
+                    <td><input type="text" id="inputME"></td>
+                </tr>
+                <tr>
+                    <td>Final Exam Score:</td>
+                    <td><input type="text" id="inputFE"></td>
+                </tr>
+                <tr>
+                    <td>Participation:</td>
+                    <td><input type="text" id="inputP"></td>
+                </tr>
+            </table>
+            <input type="button" onclick="process()" value="SUBMIT">
+            <input type="reset" value="RESET" onclick="res()" >
+            <div style="color:darkred; margin-top:.5em;">Summary of Final Grades:</div>
+            <div id="errOut"></div>
+            <div id="results"></div>
+        </form>
+    </div>
+</body>
+</html>

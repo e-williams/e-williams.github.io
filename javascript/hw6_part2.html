@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Part 2 of Homework 6 for CNIT133.">
+    <title>CNIT133 Homework 6, Part 2</title>
+    <link rel="stylesheet" type="text/css" href="hw6.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script>
+        function search()
+            {
+            //declare variables
+            var inputSearchStr, inputChar;
+            
+            //get input string to search from user and convert to lower case so simplify search
+            inputSearchStr = document.getElementById("textInput").value.toLowerCase();
+            
+            //get input character string from user, select only the character at position 0 in cases multiple characters entered,
+            //convert to lower case to simplify search
+            inputCharStr = document.getElementById("characterInput").value.charAt(0).toLocaleLowerCase();
+            
+            //output error message if either input field is left empty
+            if (inputSearchStr == "" || inputCharStr == "") {
+                document.getElementById("errorMsg").innerHTML = "Please make an entry into both the &quot;Text Input&quot; and &quot;Character Input&quot; fields."
+            }
+            else {
+                
+            //assemble not found message content for a new window
+            var notFoundMsg = "<html>\n";
+            notFoundMsg += "<head>\n";
+            notFoundMsg += "<title>Not Found in Search</title>\n";
+            notFoundMsg += "</head>\n";
+            notFoundMsg += "<body>\n";
+            notFoundMsg += "<div>"
+            notFoundMsg += "<p><strong>Search character, &quot;" + inputCharStr + "&quot;, is not found in text string!</strong></p>\n";
+            notFoundMsg += "<input type='button' value='Close Window' onclick='window.close()'>\n";
+            notFoundMsg += "</div>\n";
+            notFoundMsg += "</body>\n";
+            notFoundMsg += "</html>";
+            
+            //use a loop to search for character in each position of inputSearchStr
+            //each time found, add a count to a var count
+            //if count == 0, output the not found msg in new window; otherwise output count in output input box
+                
+            var count = 0;
+            for (i=0; i < inputSearchStr.length; i++)
+                {
+                if (inputSearchStr.charAt(i) == inputCharStr) {
+                    count++;
+                }  
+            }
+            if (count == 0) {
+                //clear any existing error message and result in output input box
+                document.getElementById("errorMsg").innerHTML = "";
+                document.getElementById("result").value = "";
+                //store reference to new browser window in a variable
+                var newWindow = window.open("", "new_window", "top=260, left=52, width=360, height=100");
+                //have browser focus on new window
+                newWindow.focus();
+                //insert html into new window
+                newWindow.document.write(notFoundMsg);
+                //tell browser that newWindow document is finished loading
+                newWindow.document.close();
+            }
+            else {
+                //clear any existing error message
+                document.getElementById("errorMsg").innerHTML = "";
+                document.getElementById("result").value = count + " occurrence(s) of \"" + inputCharStr + "\" found.";
+                //use the Escape Character \" for double quotes when writing to the value attribute, b/c one cannot
+                //use HTML (via .innerHTML) for that purpose.
+            }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw6.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 6 - Part 2</h1>
+    </div>
+    <div class="container" style="width: 34rem">
+        <form name="myForm">
+            <h4>Enter up to several lines of text below:</h4>
+             <p>
+                Text Input:<br>
+                <textarea rows="4" cols="50" id="textInput" style="margin-top: .3rem" autofocus></textarea>
+            </p>
+            <h4>Enter, below, a character to search for, within the text that was entered above:</h4>
+            <p style="display: inline">
+                Character Input:
+                <input type="text" size="5" id="characterInput">
+            </p>
+            <input type="button" onclick="search()" value="SEARCH">
+            <input type="reset" onclick="window.location.reload()">
+             <div id="errorMsg"></div>
+            <p>
+                Result:<br>
+                <input type="text" id="result" size="52" style="margin-top: .3rem" readonly> <!-- can use <input> for output -->
+            </p>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Part 3 of Homework 2 for CNIT133.">
+    <title>CNIT133 Homework 2, Part 3</title>
+    <link rel="stylesheet" type="text/css" href="hw2.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script>
+        function process()
+            {
+            //declare variables
+            var number1, number2, number3, number4, number5, n1, n2, n3, n4, n5,
+                negcount = 0, poscount = 0, zerocount = 0;
+            
+            number1 = document.getElementById("num1").value;    //string value of id "num1" is assigned to variable number1
+            number2 = document.getElementById("num2").value;
+            number3 = document.getElementById("num3").value;
+            number4 = document.getElementById("num4").value;
+            number5 = document.getElementById("num5").value;
+                
+            if (number1 == "" || number2 == "" || number3 == "" || number4 == "" || number5 == "")  //tests if the lengths of the values of these string variables are equal to zero
+                {                                                                                   //can only use "" to compare string values!
+                alert ("You must input five numbers.");
+            }
+            else    //keeps the output of document.forms.elements.value with NaN results from being executed unless there is an input for each of the three fields
+                {
+                //convert input numbers from strings to integers for arithmetic
+                n1 = parseInt(number1);
+                n2 = parseInt(number2);
+                n3 = parseInt(number3);
+                n4 = parseInt(number4);
+                n5 = parseInt(number5);
+                
+                //check if n1-n5 are less than 0, equal to 0, greather than 0
+                if (n1 < 0)     //curly braces not required so not used here, but generally good to use
+                    negcount++; //shorter code for "negcount = negcount + 1"
+                if (n1 == 0)
+                    zerocount++;
+                if (n1 > 0)
+                    poscount++;
+                if (n2 < 0)
+                    negcount++;
+                if (n2 == 0)
+                    zerocount++;
+                if (n2 > 0)
+                    poscount++;
+                if (n3 < 0)
+                    negcount++;
+                if (n3 == 0)
+                    zerocount++;
+                if (n3 > 0)
+                    poscount++;
+                if (n4 < 0)
+                    negcount++;
+                if (n4 == 0)
+                    zerocount++;
+                if (n4 > 0)
+                    poscount++;
+                if (n5 < 0)
+                    negcount++;
+                if (n5 == 0)
+                    zerocount++;
+                if (n5 > 0)
+                    poscount++;
+                
+                document.forms["myform"].elements["result"].value = (  //writes results to textarea elelement with name "result"
+                    "The integers of the input numbers are " + n1 + ", " + n2 + ", " + n3 + ", " + n4 + ", " + n5 +
+                    "\nThe count of negative numbers is " + negcount +
+                    "\nThe count of positive numbers is " + poscount +
+                    "\nThe number of zeros is " + zerocount );
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw2.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 2, Part 3</h1>
+    </div>
+    <div class="output2">
+        <h4>Input five numbers:</h4>
+        <form name="myform">
+            <table>
+                <tr>
+                    <td>First Number:</td>
+                    <td><input type="number" id="num1"></td>
+                </tr>
+                <tr>
+                    <td>Second Number:</td>
+                    <td><input type="number" id="num2"></td>
+                </tr>
+                <tr>
+                    <td>Third Number:</td>
+                    <td><input type="number" id="num3"></td>
+                </tr>
+                <tr>
+                    <td>Fourth Number:</td>
+                    <td><input type="number" id="num4"></td>
+                </tr>
+                <tr>
+                    <td>Fifth Number:</td>
+                    <td><input type="number" id="num5"></td>
+                </tr>
+            </table>
+            <h4>Results:</h4>
+            <textarea rows="8" cols="60" name="result" readonly></textarea>
+            <br><br>
+            <input type="button" onclick="process()" value="SUBMIT">
+            <input type="reset" value="RESET" onClick="location.reload()">
+        </form>
+    </div>
+</body>
+</html>

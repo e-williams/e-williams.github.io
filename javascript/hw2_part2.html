@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Part 2 of Homework 2 for CNIT133.">
+    <title>CNIT133 Homework 2, Part 2</title>
+    <link rel="stylesheet" type="text/css" href="hw2.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- type="text/javascript" is the default, so not included here -->
+    <script>
+        function process()
+            {
+            //declare variables
+            var number1, number2, number3, n1, n2, n3, sum, average, product, smallest, largest;
+            
+            number1 = document.forms["myform"].elements["num1"].value;  //value of input name "num1" is assigned to variable number1
+            number2 = document.forms["myform"].elements["num2"].value;
+            number3 = document.forms["myform"].elements["num3"].value;
+                
+            if (number1 == "" || number2 == "" || number3 == "")    //tests if the lengths of the values of these variables are equal to zero
+                {                                                   //Can only use "" to compare strings values!
+                alert ("You must input three numbers.");
+            }
+            else    //keeps the output of document.forms.elements.value with NaN results from being executed unless there is an input for each of the three fields
+                {
+                //convert input numbers from strings to integers for arithmetic
+                n1 = parseInt(number1);
+                n2 = parseInt(number2);
+                n3 = parseInt(number3);
+                
+                sum = n1 + n2 + n3;
+                average = (sum /3);
+                product = n1 * n2 * n3;
+                smallest = Math.min(n1, n2, n3);
+                largest = Math.max(n1, n2, n3);
+            
+                document.forms["myform"].elements["result"].value = (   //writes results to textarea elelement with name "result"
+                    "The input numbers were " + n1 + ", " + n2 + ", " + n3 +
+                    "\nThe sum of the integers is " + sum +
+                    "\nThe average of the integers is " + average +
+                    "\nThe product of the integers is " + product +
+                    "\nThe smallest of the integers is " + smallest +
+                    "\nThe largest of the integers is " + largest );
+
+                //fade the results inside the textarea
+                $(document).ready (function(){
+                    $("button").click(function(){
+                        $("textarea").fadeTo("slow", 0.25);
+                    });
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw2.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 2, Part 2</h1>
+    </div>
+    <div class="output2">
+        <h4>Input three numbers:</h4>
+        <form name="myform">
+            <table>
+                <tr>
+                    <td>First Number:</td>
+                    <td><input type="number" name="num1"></td>
+                </tr>
+                <tr>
+                    <td>Second Number:</td>
+                    <td><input type="number" name="num2"></td>
+                </tr>
+                <tr>
+                    <td>Third Number:</td>
+                    <td><input type="number" name="num3"></td>
+                </tr>
+            </table>
+            <h4>Results:</h4>
+            <textarea rows="8" cols="60" name="result" readonly></textarea>
+            <br><br>
+            <input type="button" onclick="process()" value="SUBMIT">
+            <input type="reset" value="RESET" onClick="location.reload()">
+            <button type="button">Click to fade results</button>
+        </form>
+    </div>
+</body>
+</html>

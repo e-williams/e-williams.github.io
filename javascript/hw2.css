@@ -1,0 +1,103 @@
+/* external style sheet for hw2.html */
+body {
+    background-color: antiquewhite;
+    min-width: 760px;
+    margin: 0;
+}
+.banner {
+    background-color: rgb(255, 201, 128);
+    height: 5rem;
+}
+h1 {
+    margin: 0;
+    color: #2929c4;
+    line-height: 5rem;
+    text-align: center;
+    font-family: sans-serif;
+    text-shadow: 1px 1px 2px black;
+}
+h3 {
+    margin: 0;
+    color: #5c5c5c;
+}
+h4 {
+    color: darkred;
+    margin-bottom: .5rem;
+}
+.home a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block; /* could also use ul to make these links behave as block elements */
+    background-color: darkred;
+    color: white;
+    text-decoration: none;
+    width: 8rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    border-bottom-right-radius: 1.5em;
+}
+.home a:hover {
+    background-color: #cc4343;
+    color: yellow;
+}
+.main a {
+    display: inline-block;
+    background-color: #38346a;
+    color: white;
+    text-decoration: none;
+    margin-top: 3em;
+    width: 8rem;
+    height: 1.8rem;
+    line-height: 1.8em;
+    text-align: center;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+.main a:hover {
+    background-color: #9da2e2;
+    color: yellow;
+}
+.main p {
+    display: inline;
+    vertical-align: bottom;
+    margin-left: 1em;
+}
+.output1 {
+    text-align: center;
+    margin-top: 1em;
+    font-size: 2em;
+}
+.output2 {
+    margin: 3em auto 0 auto;
+    width: 500px;
+}
+.pair1 {
+    color: red;
+    font-family: "Times New Roman";
+}
+.pair2 {
+    color: blue;
+    font-family: Arial;
+}
+.pair3 {
+    color: green;
+    font-family: Impact;
+}
+input {
+    text-align: right;
+}
+.container {
+    margin: 3em auto 0 auto;
+    width: 17em;
+}
+.ertable {
+    background-color: white;
+    margin-top: 1em;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.ertable td {
+    border: 1px solid black;
+}

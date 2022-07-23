@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Part 3 of Homework 6 for CNIT133.">
+    <title>CNIT133 Homework 6, Part 3</title>
+    <link rel="stylesheet" type="text/css" href="hw6.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>   <!-- script for accessing the jQuery library - wont work if use 3.4.1-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script>
+        //jQuery script for formatting input phone number
+        $(document).ready(function(){
+            $('input[name="phoneNum"]').mask('(000) 000-0000');
+        });
+        //function that splits input phone number into 3 parts and outputs each
+        function process()
+            {
+            //declare variables
+            var phoneNumStr, splitResult;
+            
+            //get input phone number
+            phoneNumStr = document.forms["myForm"].elements["phoneNum"].value;
+            
+            //split phoneNumStr into 3 tokens
+            splitResult = phoneNumStr.split(/[\(\) -]+/);
+            //can pass reular expressions as a parameter to split()
+            //delimiter used is removed from split results
+            //splitResult[0] will be nothing
+                
+            //output split results
+            document.getElementById("result1").value = splitResult[1];
+            document.getElementById("result2").value = splitResult[2];
+            document.getElementById("result3").value = splitResult[3];
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw6.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 6 - Part 3</h1>
+    </div>
+    <div class="container" style="width: 13rem">
+        <form name="myForm">
+            <h4>Enter a phone number below:</h4>
+             <p>
+                <input type="text" name="phoneNum" autofocus>
+            </p>
+            <p>
+                <input type="button" onclick="process()" value="SUBMIT">
+                <input type="reset" onclick="window.location.reload()">
+            </p>
+            <p>
+                Section 1 of phone number:<br>
+                <input type="text" id="result1" size="12" style="margin-top: .3rem" readonly> <!-- can use <input> for output -->
+            <p>
+                Section 2 of phone number:<br>
+                <input type="text" id="result2" size="12" style="margin-top: .3rem" readonly>
+            </p>
+            <p>
+                Section 3 of phone number:<br>
+                <input type="text" id="result3" size="12" style="margin-top: .3rem" readonly>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

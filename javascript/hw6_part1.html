@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Part 1 of Homework 6 for CNIT133.">
+    <title>CNIT133 Homework 6, Part 1</title>
+    <link rel="stylesheet" type="text/css" href="hw6.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script>
+        function process()
+            {
+            //declare variables
+            var inputStr, inputRegExp, num, int, sqrRt, tenths, hundredths, thousandths;
+            
+            //get input string from user
+            inputStr = document.getElementById("input").value;
+            
+            //check format of inputStr using regular expression
+            //if inputStr does not match reg exp, output error message; else proceed
+            inputRegExp = /^\d+\.\d{4,}$/;
+            if (!inputRegExp.test(inputStr))
+                {
+                document.getElementById("errorMsg").innerHTML = "Please enter a number with at least 4 decimal positions.";
+                //clear any existing results
+                document.forms["myForm"].elements["result"].value = "";
+            }
+            else //convert inputStr to floating point and perform calculations
+                {
+                //clear any existing error message
+                document.getElementById("errorMsg").innerHTML = "";
+                
+                //convert inputStr to floating point number
+                num = parseFloat(inputStr);
+                    
+                //calculate nearest integer
+                int = Math.round(num);
+                
+                //calculate square root, rounded to an integer
+                sqrRt = Math.round(Math.sqrt(num));
+                
+                //round to the nearest tenths
+                tenths = num.toFixed(1);
+                
+                //round to the nearest hundredths
+                hundredths = num.toFixed(2);
+                
+                //round to the nearest thousandths
+                
+                thousandths = num.toFixed(3);
+                
+                //output results to textbox
+                document.forms["myForm"].elements["result"].value = (
+                "The number you entered is " + inputStr +
+                "\nThe number rounded to the nearest integer is " + int +
+                "\nThe square root of the number, then rounded to the nearest integer is " + sqrRt +
+                "\nThe number rounded to the tenths position is " + tenths +
+                "\nThe number rounded to the hundredths position is " + hundredths +
+                "\nThe number rounded to the thousandsths position is " + thousandths );
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw6.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 6 - Part 1</h1>
+    </div>
+    <div class="container">
+        <form name="myForm">
+            <h4>Enter a number with at least 4 decimal positions and click the submit button to get calculation results:</h4>
+            <input type="number" id="input" autofocus>
+            <input type="button" onclick="process()" value="SUBMIT">
+            <input type="reset" onclick="window.location.reload()">
+            <div id="errorMsg"></div>
+            <h4 style="margin: 1rem 0 .5rem 0; color: black">Results:</h4>
+            <textarea rows="8" cols="70" name="result" readonly></textarea>
+        </form>
+    </div>
+</body>
+</html>

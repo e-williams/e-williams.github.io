@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Homework 8 for CNIT133.">
+    <title>CNIT133 Homework 8</title>
+    <link rel="stylesheet" type="text/css" href="hw8.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script>
+        function showHint(str)
+            {
+            if (str.length == 0) {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+            }
+            else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                }
+                xmlhttp.open("GET", "gethint.php?q=" + str, true);
+                xmlhttp.send();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw1.html">Home</a>
+        </nav>
+        <h1>CNIT 133 Homework 8 - Objects</h1>
+    </div>
+    <div class="description">
+        <h2>Autocomplete Form</h2>
+        <h4>Description:</h4>
+        <p>
+            The form below contains a script that, upon entry of each character by the user into an input box, uses Ajax to asynchronously send a request
+            to a PHP file on the server that executes a script, and processes the server response to enhance the user's experience, providing suggested names
+            as the user types.
+        </p>
+    </div>
+    <div class="container">
+        <h4 style="margin-bottom: 1.5rem; color: #d33900">Start typing a name in the input field below:</h4>
+        <form>
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" onkeyup="showHint(this.value)">
+        </form>
+        <p>Suggestions: <span id="txtHint"></span></p>
+        <p>
+            *ATTENTION: the server/PHP file used in the script of this form may no longer be available, resulting in dysfuntional performance of the form.
+        </p>
+    </div>
+    <br>
+    <div class="description">
+        <h2>REST API</h2>
+        <h4>Description:</h4>
+        <p>
+            Below is a summary of documentation for the REST API, Spoonacular, which uses data on food ingredients, recipes, products and menu
+            items that can be utilized in a multitude of ways, including recipe diet analysis, recipe management, meal planning, etc.
+        </p>
+        <table>
+            <tr>
+                <td>Name of API:</td>
+                <td>Spoonacular</td>
+            </tr>
+            <tr>
+                <td>SSL Support:</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Requires API Key:</td>
+                <td>Yes / Acess tokens: OAuth1, OAuth2, Other/Custom</td>
+            </tr>
+            <tr>
+                <td>Request Format:</td>
+                <td>URI query string, CRUD</td>
+            </tr>
+            <tr>
+                <td>Response Format:</td>
+                <td>JSON</td>
+            </tr>
+            <tr>
+                <td>Documentation URL:</td>
+                <td><a href="https://spoonacular.com/food-api/docs" target="_blank">https://spoonacular.com/food-api/docs</a></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

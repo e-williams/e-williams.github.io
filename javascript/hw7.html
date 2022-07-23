@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Homework 7 for CNIT133.">
+    <title>CNIT133 Homework 7</title>
+    <link rel="stylesheet" type="text/css" href="hw7.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script src="https://code.jquery.com/jquery-1.7.1.js"></script>
+    <script>
+        $(document).ready(function(){ //always needed in 1st line of jQuery - waits until HTML for page loaded before running script
+            $('.main h2').attr('data-before', ' + '); // adds "+" before <h2> content
+            $('.info').hide(); //hides elements with class "info"
+            $('.main h2').toggle( //toggle takes two anonymous functions as arguments
+            function(){
+                $(this).next('.info').slideDown(); //(this) refers to element responding to event (.main h2)
+                $(this).addClass('close'); //adds a class "close" to <h2> element when it's clicked the first time
+                $(this).attr('data-before', ' - '); //adds "-" before <h2> content upon first click
+            },
+            function(){
+                $(this).next('.info').fadeOut();
+                $(this).removeClass('close');
+                $(this).attr('data-before', ' + '); //adds "+" back before <h2> content upon second click
+            }
+            ); //end .toggle
+        }); //end .ready
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw1.html">Home</a>
+        </nav>
+        <h1>CNIT 133 Homework 7 - Object Model and Event Model</h1>
+    </div>
+    <nav class="main">
+        <h2>Homework Part 1</h2>
+        <div class="info">
+            <p>Allows users to select page layout and formatting through the use of the className property.</p>
+            <a href="hw7_part1.html"> Go to Part 1</a>
+        </div>
+        
+        <h2>Homework Part 2</h2>
+        <div class="info">
+            <p>
+                Includes a script that displays a navigation bar containing links to the cover pages of homeworks 1 though 6,<br>
+                and uses the mouseover event to display dropped-down links for each homework's parts.
+            </p>
+            <a href="hw7_part2.html">Go to Part 2</a>
+        </div>
+    </nav>
+</body>
+</html>

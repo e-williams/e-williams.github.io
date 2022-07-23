@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Part 2 of Homework 4 for CNIT133.">
+    <title>CNIT133 Homework 4, Part 2</title>
+    <link rel="stylesheet" type="text/css" href="hw4.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw4.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 4 - Part 2</h1>
+    </div>
+    <h2 style="margin-bottom: 0;">Compound Interest Calculator</h2>
+    <h4>(showing results for a principal of $1000)</h4>
+    <div id="scriptContainer">
+    <script>
+        //declare variables
+        var a, p = 1000;
+        
+        for (var r = 0.05; r <= 0.07; r += 0.01)
+            {
+            document.write ("<table><tr><th>Year</th>" +
+                            "<th>Amount on Deposit</th>" +
+                            "<th>Interest Rate</th></tr></table>");
+                for (var n = 1; n <= 10; n +=2 )
+                    {
+                    a = p*(Math.pow((1 + r), n));
+                    document.write ("<table><tr style='background-color: coral'>" +
+                                    "<td>" + n + "</td><td>" + a.toFixed(2) + "</td><td>" + r.toFixed(2) + "</td></tr></table>");
+                    
+                    //add next even row with different background color
+                    var aEvenRows = p*(Math.pow((1 + r), (n + 1)));
+                    document.write ("<table><tr style='background-color: yellow'>" +
+                                    "<td>" + (n + 1) + "</td><td>" + aEvenRows.toFixed(2) + "</td><td>" + r.toFixed(2) + "</td></tr></table>");
+                }
+            document.write("<br>");
+        }
+    </script>
+    </div>
+</body>
+</html>
+    

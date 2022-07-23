@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Part 1 of Homework 7 for CNIT133.">
+    <title>CNIT133 Homework 7, Part 1</title>
+    <link rel="stylesheet" type="text/css" href="hw7.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script>
+        //script for page background
+        //argument 0,1,etc passed to (style) from input boxes
+        function changeBackground_pg(style) 
+            {
+            var body = document.getElementById("body"); //gets control of <body> tag
+                
+            if (style == 0) {
+                body.className = "blue";
+            }
+            else if(style == 1) {
+                body.className = "green";
+            }
+            else if(style == 2) {
+                body.className = "purple";
+            }
+        }
+        function changeBackground_container()
+            {
+            var containerObject = document.getElementById("container"); //gets control of "container" <div> tag
+            var selectedBackground = document.getElementById("backgroundDropDown").value; //assigns selected option value to selectedBackground
+                
+            if (selectedBackground == "aqua") {
+                containerObject.className = "aquaContainer";
+            }
+            else if (selectedBackground == "bisque") {
+                containerObject.className = "bisqueContainer";
+            }
+            else if (selectedBackground == "yellow") {
+                containerObject.className = "yellowContainer";
+            }
+        }
+        function changeFont_title()
+            {
+            var h1Object = document.getElementById("title"); //gets control of <h1> tag
+                
+            if (document.getElementById("font_family").checked == true) {
+                h1Object.className = "cursive_h1";
+            }
+            if (document.getElementById("font_family").checked == false) {
+                h1Object.className = "oroginal_h1";
+            }
+        }
+        function originalSettings()
+            {
+            //clear form selctions
+            document.getElementById("myForm").reset();
+                
+            //set all selections back to original CSS
+            var body = document.getElementById("body"); //gets control of <body> tag
+            var containerObject = document.getElementById("container"); //gets control of "container" <div> tag
+            var h1Object = document.getElementById("title"); //gets control of <h1> tag
+                
+            body.className = "original_body";
+            containerObject.className = "container";
+            h1Object.className = "original_h1";
+        }
+    </script>
+</head>
+<body id="body">
+    <div class="banner">
+        <nav class="home">
+            <a href="hw7.html">Contents</a>
+        </nav>
+        <h1 id="title">CNIT 133 Homework 7 - Part 1</h1>
+    </div>
+    <div class="container" id="container">
+        <form action="hw5_form_ok.html" method="post" id="myForm">
+            <div>
+                Select page background color: <!-- must use only one tag enclosing all gender options for error message to work properly -->
+                Blue<input type="radio" name="background_page" value="blue" onclick="changeBackground_pg(0)">
+                Green<input type="radio" name="background_page" value="green" onclick="changeBackground_pg(1)">
+                Purple<input type="radio" name="background_page" value="purple" onclick="changeBackground_pg(2)">
+            </div>
+            
+            <div>
+                Select box background color:
+                <select name="backgroundDropDown" id="backgroundDropDown" onchange="changeBackground_container()">
+                    <option value="">--Select color--</option>
+                    <option value="aqua">Aqua</option>
+                    <option value="bisque">Bisque</option>
+                    <option value="yellow">Yellow</option>
+                </select>
+            </div>
+            <div>
+                Change font-family of page title to cursive: 
+                <input type="checkbox" name="font_family" id="font_family" value="cursive" onclick="changeFont_title(0)">Cursive
+            </div>
+            <div>
+                <input type="button" value="Default Settings"  onclick="originalSettings()">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

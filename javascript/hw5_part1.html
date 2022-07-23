@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Part 1 of Homework 5 for CNIT133.">
+    <title>CNIT133 Homework 5, Part 1</title>
+    <link rel="stylesheet" type="text/css" href="hw5.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>   <!-- script for accessing the jQuery library - wont work if use 3.4.1-->
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>   <!-- script for jQuery validation of input -->
+    <script>
+        // validate form entries
+        $(document).ready(function(){   //code will only run once the Document Object Model (DOM) is ready
+            $("#myForm").validate({
+                messages: { //each field refers to name of element
+                    name: "A name entry is required.",
+                    gender: "A gender selection is required.",
+                    age: "An age selection is required.",
+                    vehicle: "Select all vehicles that apply.",
+                },
+                /* the following is needed for placing an error message after the raio and checkbox elements */
+                errorPlacement: function(error, element) {
+                    if ( element.is(":radio") || element.is(":checkbox")) {
+                        error.appendTo( element.parent());
+                    }
+                    else {
+                        error.insertAfter(element);
+                    }
+                } // end errorPlacement
+            });
+        });
+</script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw5.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 5 - Part 1</h1>
+    </div>
+    <div class="container">
+        <form action="hw5_form_ok.html" method="post" id="myForm"> <!-- id used with "#myForm" in jQuery script -->
+            <!-- attribute class="required" will allow for error messages to be appended to that element -->
+            <div>
+                Please enter your full name:
+                <input type="text" size="30" name="name" class="required" autofocus>
+            </div>
+            <div>
+                Please select your gender: <!-- must use only one tag enclosing all gender options for error message to work properly -->
+                Male<input type="radio" name="gender" value="male" class="required">
+                Female<input type="radio" name="gender" value="female">
+                Transgender<input type="radio" name="gender" value="transgender">
+            </div>
+            
+            <div>
+                Please select your age:
+                <select name="age" class="required">
+                    <option value="">Select your age</option>
+                    <option value="0 - 20 yrs">0 - 20 yrs</option>
+                    <option value="21 - 40 yrs">21 - 40 yrs</option>
+                    <option value="41 - 60 yrs">41 - 60 yrs</option>
+                    <option value="61 - 80 yrs">61 - 80 yrs</option>
+                    <option value="81 - 100 yrs">81 - 100yrs</option>
+                    <option value="over 100 yrs">over 100 yrs</option>
+                </select>
+            </div>
+            <div>
+                Please select all vehicles that you own:
+                <input type="checkbox" name="vehicle" value="car" class="required">Car
+                <input type="checkbox" name="vehicle" value="motorcycle">Motorcycle
+                <input type="checkbox" name="vehicle" value="scooter">Scooter
+                <input type="checkbox" name="vehicle" value="bicycle">Bicycle
+            </div>
+            <div>
+                <input type="submit" value="SUBMIT">
+                <input type="reset" value="RESET" onclick="window.location.reload()">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

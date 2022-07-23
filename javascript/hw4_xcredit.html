@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is the extra credit for Homework 4 for CNIT133.">
+    <title>CNIT133 Homework 4, Extra Credit</title>
+    <link rel="stylesheet" type="text/css" href="hw4.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script>
+        function process()
+            {
+            var sLength, iLength, stars, spaces;
+            var errMsg = "You must enter a number between 2 and 10 inclusive.   ";
+
+            //read input length by user
+            sLength = document.getElementById("inputLength").value;
+            
+            //validate input: if not valid, show error message, else proceed
+            if (sLength == "" || isNaN(sLength) || sLength < 2 || sLength > 10)
+                {
+                document.getElementById("errMsgOut").innerHTML = errMsg;
+            }
+            else if (sLength >= 2 || sLength <= 10)
+                {
+                document.getElementById("errMsgOut").innerHTML = "";
+
+                //convert input string to integer
+                length = parseInt(sLength);
+                    
+                for (var row = 1; row <= length; row++)
+                    {
+                    if (row == 1 || row == length)
+                        {
+                        for (var char = 1; char <= length; char++)
+                            {
+                            document.getElementById("output").innerHTML += "*";
+                            if (char < length)
+                                {
+                                document.getElementById("output").innerHTML += "&nbsp;";
+                            }
+                        }
+                    }
+                    else
+                        {
+                        for (var char = 1; char <= 2*length -1; char++)
+                            {
+                            if (char == 1 || char == 2*length -1)
+                                {
+                                document.getElementById("output").innerHTML += "*";
+                            }
+                            else 
+                                {
+                                document.getElementById("output").innerHTML += "&nbsp;";
+                            }
+                        }
+                    }
+                    document.getElementById("output").innerHTML += "<br>";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw4.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 4 - Extra Credit</h1>
+    </div>
+    <div class="inputContainer">
+        <form name="myForm">
+            <h4 style="text-align:left; color:darkred">Enter the length of one side of a square to be generated,
+                as an integer between 2 and 10 inclusive:</h4>
+            <label for="inputLength">Length:</label>
+            <input class="length" type="text" id="inputLength" name="inputLength" autofocus>
+            <div id="errMsgOut"></div>
+            <br><br>
+            <div style="width:10em">
+                <input type="button" onclick="process()" value="SUBMIT">
+                <input type="reset" value="RESET" onClick="location.reload()">
+            </div>
+        </form>
+    </div>
+    <div id="output"></div>
+</body>
+</html>
+    

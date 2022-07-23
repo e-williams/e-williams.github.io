@@ -1,0 +1,54 @@
+<!-- script from homwork 4 extra credit -->
+<script>
+    function process()
+        {
+        var sLength, iLength, stars, spaces;
+        var errMsg = "You must enter a number between 2 and 10 inclusive.   ";
+
+        //read input length by user
+        sLength = document.getElementById("inputLength").value;
+            
+        //validate input: if not valid, show error message, else proceed
+        if (sLength == "" || isNaN(sLength) || sLength < 2 || sLength > 10)
+            {
+            document.getElementById("errMsgOut").innerHTML = errMsg;
+        }
+         else if (sLength >= 2 || sLength <= 10)
+            {
+            document.getElementById("errMsgOut").innerHTML = "";
+
+            //convert input string to integer
+            length = parseInt(sLength);
+                    
+            for (var row = 1; row <= length; row++)
+                {
+                if (row == 1 || row == length)
+                    {
+                    for (var char = 1; char <= length; char++)
+                        {
+                        document.getElementById("output").innerHTML += "*";
+                        if (char < length)
+                            {
+                            document.getElementById("output").innerHTML += "&nbsp";
+                        }
+                    }
+                }
+                else
+                    {
+                    for (var char = 1; char <= 2*length -1; char++)
+                        {
+                        if (char == 1 || char == 2*length -1)
+                            {
+                             document.getElementById("output").innerHTML += "*";
+                        }
+                        else 
+                            {
+                            document.getElementById("output").innerHTML += "&nbsp";
+                        }
+                    }
+                }
+                document.getElementById("output").innerHTML += "<br>";
+            }
+        }
+    }
+</script>

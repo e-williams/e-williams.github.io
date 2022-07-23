@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Part 1 of Homework 4 for CNIT133.">
+    <title>CNIT133 Homework 4, Part 1</title>
+    <link rel="stylesheet" type="text/css" href="hw4.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw4.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 4 - Part 1</h1>
+    </div>
+    <h2>Part 1a</h2>
+    <div class="container">
+        <script>
+            //calculate the product and sum of every fourth integer from 5 to 21 inclusive
+            var prod = 1;
+            var sum = 0;
+            for (var num = 5; num <= 21; num +=4)
+                {
+                prod = prod * num;
+                sum += num;
+            }
+            //display results of above calculations
+            document.write("5 * 9 * 13 * 17 * 21 = " + prod + "<br>");
+            document.write("5 + 9 + 13 + 17 + 21 = " + sum);
+        </script>
+    </div>
+    <h2>Part 1b</h2>
+    <div class="container">
+        <script>
+            //calculate the product and sum of every third integer from 3 to 21 inclusive
+            var prod = 1;
+            var x = 0;
+            var sum = 0;
+            while (x < 21) //not (x <= 21) b/c loop would execute after x = 21, to create x = 24, sum = 108.
+                {
+                x = x + 3;
+                prod = prod * x;
+                sum = sum + x;
+            }
+            //display the results of above calculations
+            document.write("3 * 6 * 9 * 12 * 15 * 18 * 21 = " + prod + "<br>");
+            document.write("3 + 6 + 9 + 12 + 15 + 18 + 21 = " + sum);
+        </script>
+    </div>
+    <script>
+        $(function() {
+            $("#dragMe").draggable();
+        });
+    </script>
+    <h2>jQuery UI Application</h2>
+    <div class="dragMe" id="dragMe">
+        DRAG ME AROUND 😀
+    </div>
+</body>
+</html>
+    

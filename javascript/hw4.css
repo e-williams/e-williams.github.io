@@ -1,0 +1,144 @@
+/* external style sheet for hw4.html */
+body {
+    background-color: antiquewhite;
+    min-width: 760px;
+    margin: 0;
+}
+.banner {
+    background-color: rgb(255, 201, 128);
+    height: 5rem;
+}
+h1 {
+    margin: 0;
+    color: #2929c4;
+    line-height: 5rem;
+    text-align: center;
+    font-family: sans-serif;
+    text-shadow: 1px 1px 2px black;
+}
+h2 {
+    text-align: center;
+    margin-top: 2em;
+    color: darkred;
+}
+h4 {
+    text-align: center;
+    margin-top: .5em;
+    color: #5a5a5a;
+}
+.home a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block; /* could also use ul to make these links behave as block elements */
+    background-color: darkred;
+    color: white;
+    text-decoration: none;
+    width: 8rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    border-bottom-right-radius: 1.5em;
+}
+.home a:hover {
+    background-color: #cc4343;
+    color: yellow;
+}
+.main a {
+    display: inline-block;
+    background-color: #38346a;
+    color: white;
+    text-decoration: none;
+    margin-top: 3em;
+    width: 8rem;
+    height: 1.8rem;
+    line-height: 1.8em;
+    text-align: center;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+.main a:hover {
+    background-color: #9da2e2;
+    color: yellow;
+}
+.main p {
+    display: inline;
+    vertical-align: bottom;
+    margin-left: 1em;
+}
+.container {
+    margin: 1em auto 0 auto;
+    padding: 1.5rem;
+    width: 21rem;
+    background-color: #f5e2c8;
+    font-size: 20px;
+    border: 1px solid rgba(190, 183, 147, 0.5);
+}
+.dragMe {
+    margin: auto;
+    padding: 1.5rem;
+    width: 21rem;
+    background-color: #d5dcfa;
+    color: forestgreen;
+    font-size: 2em;
+    text-shadow: 2px 2px 3px black;
+}
+#scriptContainer {
+    margin: 1.5em auto 0 auto;
+    width: 19em;
+}
+table {
+    border-collapse: collapse;
+}
+table td {
+    border: 1px dotted black;
+}
+table th {
+    border: 1px dotted black;
+    color: white;
+    background-color: darkred;
+}
+table th:nth-child(1) {
+    width: 2em;
+}
+table th:nth-child(2) {
+    width: 10em;
+}
+table th:nth-child(3) {
+    width: 6em;
+}
+table td:nth-child(1) {
+    width: 2em;
+}
+table td:nth-child(2) {
+    width: 10em;
+}
+table td:nth-child(3) {
+    width: 6em;
+}
+.inputContainer {
+    margin: 3em auto 0 auto;
+    width: 28rem;
+    background-color: #f5e2c8;
+    padding: 1.2rem;
+    border: 1px solid rgba(190, 183, 147, 0.5);
+}
+#output {
+    margin-top: 3rem;
+    background-color: antiquewhite;
+    text-align: center;
+    font-family: monospace;
+}
+.length {
+    background-color:aqua;
+    width: 3em;
+    text-align: center;
+}
+label {
+    font-size: 1em;
+}
+#errMsgOut {
+    display: inline;
+    color: red;
+    font-style: italic;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Part 3 of Homework 3 for CNIT133.">
+    <title>CNIT133 Homework 3, Part 3</title>
+    <link rel="stylesheet" type="text/css" href="hw3.css">  <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>   <!-- script for accessing the jQuery library - wont work if use 3.4.1-->
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>   <!-- script for jQuery validation of input -->
+    <script> 
+        function farToCel()
+            {
+            $(document).ready(function(){   //code will only run once the Document Object Model (DOM) is ready
+                $("#myform").validate({
+                rules:
+                    {
+                    temp1: { required: true, number: true} //temp1 refers to the name of the input box
+                }
+                });
+            });
+                
+            if ($("#myform").valid())
+                {
+                //declare variables
+                var sf, nf, cel;
+
+                //get input string value from form
+                 sf = document.getElementById("temp1").value;
+
+                //convert input string to integer number
+                nf = parseFloat(sf);
+                
+                //perform conversion calculation
+                cel = (nf - 32) * (5/9);
+                
+                //send input number to textbox with name "temp2"
+                document.myform.result.value = (Math.round(nf) + " degrees Farenheit" + " = " + Math.round(cel) + " degrees Celcius");
+            }
+        }
+        
+        function celToFar()
+            {
+            $(document).ready(function(){   //code will only run once the Document Object Model (DOM) is ready
+                $("#myform").validate({
+                rules:
+                    {
+                    temp2: { required: true, number: true} //temp1 refers to the name of the input box
+                }
+                });
+            });
+                
+            if ($("#myform").valid())
+                {
+                //declare variables
+                var sc, nc, far;
+
+                //get input string value from form
+                 sc = document.getElementById("temp2").value;
+
+                //convert input string to integer number
+                nc = parseFloat(sc);
+                
+                //perform conversion calculation
+                far = (nc * 9/5) + 32;
+                
+                //send input number to textbox with name "temp2"
+                document.myform.result.value = (Math.round(nc) + " degrees Celcius" + " = " + Math.round(far) + " degrees Farenheit");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw3.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 3, Part 3</h1>
+    </div>
+    <h2>Temperature Conversion Calculator</h2>
+    <div class="container" style="width:28rem">
+        <h5>Enter a number for either degrees Farenheit or Celcius, and use the beneath submit button to convert to the alternative units:</h5>
+        <form name="myform" id="myform"> <!-- id used in jQuery ("#myform") and name used in document.myform... -->
+            <table id="tabInput3">
+                <tr>
+                    <td><label for="temp1">Enter &deg;F:</label> <!--label "for" attribute refers to element id -->
+                        <div class="errOut"><input type="text" id="temp1" name="temp1" size="25"></div></td> <!-- size attribute would not work with type="number" -->
+                    <td></td>
+                    <td><label for="temp2">Enter &deg;C:</label>
+                        <div class="errOut"><input type="text" id="temp2" name="temp2" size="25"></div></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center;"><input type="button" onclick="farToCel()" value="SUBMIT"></td>
+                    <td><input type="reset" value="RESET" onClick="window.location.reload()"></td>
+                    <td style="text-align:center;"><input type="button" onclick="celToFar()" value="SUBMIT"></td>
+                </tr>
+            </table>
+            <br>
+            Results:
+            <input type="text" name="result" readonly size="48">
+        </form> 
+    </div>
+</body>
+</html>

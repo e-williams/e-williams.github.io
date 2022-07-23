@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Part 3 of Homework 5 for CNIT133.">
+    <title>CNIT133 Homework 5, Part 3</title>
+    <link rel="stylesheet" type="text/css" href="hw5.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script>
+        function getCensusInfo()
+            {
+            //declare variables
+            var state, censusArray, invalidArray, dataFound;
+                
+            //get input string from user
+            state = document.getElementById("stateInput").value;
+            
+            //change input string to upper case so validation is case-insensitive
+            state = state.toUpperCase();
+            
+            //for array data, make data in each position a string type, including numbers
+            //also make strings all upper case to work with case-insensitive validation
+            censusArray = [ ["AL", "ALABAMA", "Montgomery", "4,887,871"],
+                            ["AK", "ALASKA", "Juneau", "737,438"],
+                            ["AZ", "ARIZONA", "Phoenix", "7,171,646"],
+                            ["AR","ARKANSAS", "Little Rock", "3,010,825"],
+                            ["CA","CALIFORNIA", "Sacramento", "39,557,045"],
+                            ["CO","COLORADO", "Denver", "5,694,564"] ];
+                
+            //create array of all remaining state names and abbreviations for invalid state message
+            invalidArray = [ ["CT", "CONNECTICUT"],
+                             ["DE", "DELAWARE"],
+                             ["FL", "FLORIDA"],
+                             ["GA", "GEORGIA"],
+                             ["HI", "HAWAII"],
+                             ["ID", "IDAHO"],
+                             ["IL", "ILLINOIS"],
+                             ["IN", "INDIANA"],
+                             ["IA", "IOWA"],
+                             ["KS", "KANSAS"],
+                             ["KY", "KENTUCKY"],
+                             ["LA", "LOUISIANA"],
+                             ["ME", "MAINE"],
+                             ["MD", "MARYLAND"],
+                             ["MA", "MASSACHUSETTS"],
+                             ["MI", "MICHIGAN"],
+                             ["MN", "MINNESOTA"],
+                             ["MS", "MISSISSIPPI"],
+                             ["MO", "MISSOURI"],
+                             ["MT", "MONTANA"],
+                             ["NE", "NEBRASKA"],
+                             ["NV", "NEVADA"],
+                             ["NH", "NEW HAMPSHIRE"],
+                             ["NJ", "NEW JERSEY"],
+                             ["NM", "NEW MEXICO"],
+                             ["NY", "NEW YORK"],
+                             ["NC", "NORTH CAROLINA"],
+                             ["ND", "NORTH DAKOTA"],
+                             ["OH", "OHIO"],
+                             ["OK", "OKLAHOMA"],
+                             ["OR", "OREGON"],
+                             ["PA", "PENNSYLVANIA"],
+                             ["RI", "RHODE ISLAND"],
+                             ["SC", "SOUTH CAROLINA"],
+                             ["SD", "SOUTH DAKOTA"],
+                             ["TN", "TENNESSEE"],
+                             ["TX", "TEXAS"],
+                             ["UT", "UTAH"],
+                             ["VT", "VERMONT"],
+                             ["VA", "VIRGINIA"],
+                             ["WA", "WASHINGTON"],
+                             ["WV", "WEST VIRGINIA"],
+                             ["WI", "WISCONSIN"],
+                             ["WY", "WYOMING"] ];
+            
+            //if input string is not empty, check both arrays
+                //if string is in census array, output data
+                //output message if input state data is unavailable (state is in invalid array)
+                //if string is not in either array (invalid characters), output message
+            //if input string is empty, output message
+            if (state !== "")
+                {
+                //clear any existing error message
+                document.getElementById("errorMsg").innerHTML = "";
+                
+                //check if input string is in censusArray; if so, output data for input state
+                var inArrayCensus = false; //used to provide inherent if..else logic to processing of each array
+                for (var row = 0; row < censusArray.length; row++) //6 loops (length of 2-dimensional array is that of outer array - rows)
+                    {
+                    if ((state == censusArray[row][0]) || (state == censusArray[row][1])) //checks if 1st or 2nd position of each row == state
+                        {
+                        //first create name of found state with only first letter upper case
+                        var stateName = (censusArray[row][1]).toLocaleLowerCase(); //store lower case name from array in var stateName
+                        var firstLetter = stateName.charAt(0).toUpperCase(); //make first letter upper case and store in new var
+                        var restOfName = stateName.slice(1); //slice off remainder of name and store in new var
+                        
+                        //now output array data
+                        document.forms["myForm"].elements["result"].value = (
+                            "Here is the information you requested:" +
+                            "\n\nThe state's abbreviation is " + censusArray[row][0] + "." +
+                            "\nThe state's name is " + firstLetter + restOfName + "." +
+                            "\nThe state's capital is " + censusArray[row][2] + "." +
+                            "\nThe state's population is " + censusArray[row][3] + "." );
+                        row = censusArray.length; //ends for loop if data is found
+                        inArrayCensus = true;
+                    }
+                }
+                if (inArrayCensus == false) //process if input state is not found in censusArray
+                    {
+                    var inArrayInvalid = false; //used to provide logic for message if incorrect characters entered
+                    //check if input string is in invalidArray; if so, output message stating data is unavailable
+                    for (var row = 0; row < invalidArray.length; row++) //44 loops
+                        {
+                        if ((state == invalidArray[row][0]) || (state == invalidArray[row][1]))
+                            {
+                            document.getElementById("errorMsg").innerHTML = "We are sorry, but no data is available for that state.";
+                            row = invalidArray.length; //ends for loop if data is found
+                            inArrayInvalid = true;
+                        }
+                    }
+                }
+                //if incorrect characters are entered, output message
+                if (inArrayInvalid == false)
+                    {
+                    document.getElementById("errorMsg").innerHTML = "Please enter a valid state name or abbreviation.";
+                }
+            } //end of first if statement
+                
+            //if input string is empty, output message
+            else
+                {
+                document.getElementById("errorMsg").innerHTML = "You must enter a state name or abbreviation.";
+            }
+        } //end of function getCensusInfo()
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw5.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 5 - Part 3</h1>
+    </div>
+    <div class="container_p2">
+        <form name="myForm">
+            <h4>Enter a state name and click the "State Info" button to get the relative data from the 2018 census:</h4>
+            <input type="text" id="stateInput" autofocus>
+            <input type="button" onclick="getCensusInfo()" value="State Info">
+            <input type="reset" onclick="window.location.reload()">
+            <div id="errorMsg"></div>
+            <h4 style="margin: 1rem 0 .5rem 0; color: black">Results:</h4>
+            <textarea rows="8" cols="60" name="result" readonly></textarea>
+        </form>
+    </div>
+</body>
+</html>

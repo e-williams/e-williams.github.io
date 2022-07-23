@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Part 2 of Homework 5 for CNIT133.">
+    <title>CNIT133 Homework 5, Part 2</title>
+    <link rel="stylesheet" type="text/css" href="hw5.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script>
+        function goToWebsite1(myForm)
+            {
+            var mySite = myForm.siteList1.options[myForm.siteList1.selectedIndex].value;
+            window.location = mySite;
+        }
+        function goToWebsite2(myForm)
+            {
+            var mySite = myForm.siteList2.options[myForm.siteList2.selectedIndex].value;
+            window.location = mySite;
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <nav class="home">
+            <a href="hw5.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 5 - Part 2</h1>
+    </div>
+    <div class="container_p2">
+        <form>
+            <h4>Websites with information and resources related to COVID-19:</h4>
+            <select name="siteList1" onchange="goToWebsite1(this.form);">
+                <option>Choose a website:</option>
+                <option value="https://who.int">World Health Organization</option>
+                <option value="https://cdc.gov">Centers for Disease Control and Prevention</option>
+                <option value="https://coronavirus.jhu.edu/map.html">Johns Hopkins Coronavirus Resource Center</option>
+                <option value="https://covid19.ca.gov">California Coronavirus Response</option>
+            </select>
+            <h4 style="margin-top:2em">Websites with information and resources related to investing:</h4>
+            <select name="siteList2">
+                <option>Choose a website:</option>
+                <option value="https://investing.com">Investing.com</option>
+                <option value="https://finance.yahoo.com">Yahoo Finance</option>
+                <option value="https://investopedia.com">Investopedia</option>
+            </select>
+            <input type="button" value="Go" onclick="goToWebsite2(this.form);">
+        </form>
+    </div>
+</body>
+</html>

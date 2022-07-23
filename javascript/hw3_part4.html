@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is Part 4 of Homework 3 for CNIT133.">
+    <title>CNIT133 Homework 3, Part 4</title>
+    <link rel="stylesheet" type="text/css" href="hw3.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
+    <script>
+        //fucntion of multiplication problem, accepting two parameters
+        function product(a, b)
+            {
+            return a * b;
+        }
+        
+        //declare variables
+        var r1, r2, ans;
+        
+        //create a function that generates a 
+        function newQuestions()
+            {
+            //create two random numbers 0-9: Math.random creates random numbers between 0 and < 1; multiply by 10 to get integers 0-9
+            r1 = Math.floor(Math.random() * 10); //returns a random integer 0-9
+            r2 = Math.floor(Math.random() * 10);
+            
+            //send a multiplication problem to form <div> using generated random numbers
+            document.getElementById("mathProb").innerHTML = ("What is the product of " + r1 + " X " + r2 + "?");
+            document.getElementById("proceed").style.display = "none";
+            document.getElementById("stop").style.display = "none";
+        }
+            
+        //function that gets input from form, checks answer, confirms
+        function ansSubmit()
+            {
+            //get input string from user
+            ans = document.getElementById("inputAns").value;
+                
+            if (ans == "")
+                {
+                document.getElementById("invalidInput").innerHTML= ("You must enter a number.");
+                document.getElementById("feedback").innerHTML= ""
+            }
+            //use equality operator and call function product to compare a string to a number
+            else if (ans == product(r1, r2))
+                {
+                document.getElementById("feedback").innerHTML= ("Very good!" + " Would you like to continue?");
+                document.getElementById("invalidInput").innerHTML= "";
+                document.getElementById("proceed").style.display = "inline";
+                document.getElementById("stop").style.display = "inline";
+            }
+            else {
+                document.getElementById("feedback").innerHTML= ("No. Please try again.");
+                document.getElementById("invalidInput").innerHTML= "";
+                document.myform.inputAns.value = "";
+            }
+        }
+        //function that exits script and clears fields
+        function discontinue()
+            {
+            document.getElementById("mathProb").innerHTML= "";
+            document.myform.inputAns.value = "";
+            document.getElementById("feedback").innerHTML= ("Good bye.");
+            document.getElementById("proceed").style.display = "none";
+            document.getElementById("stop").style.display = "none";
+        }
+    </script>
+</head>
+<body onload = "newQuestions()">
+    <div class="banner">
+        <nav class="home">
+            <a href="hw3.html">Contents</a>
+        </nav>
+        <h1>CNIT 133 Homework 3, Part 4</h1>
+    </div>
+    <h2>Multiplication Problems</h2>
+    <div class="container" style="width:17em">
+        <form name="myform">
+            <div id="mathProb"></div>
+            <input type="number" id="inputAns" style="width:4em; margin-top:1em">
+            <input type="button" onclick="ansSubmit()" value="SUBMIT">
+            <div id="invalidInput" class="errOut"></div>
+            <div id="feedback"></div>
+            <input type="button" id="proceed" onclick="location.reload()" value="YES">
+            <input type="button" id="stop" onclick="discontinue()" value="NO">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+/* external style sheet for hw3.html */
+body {
+    background-color: antiquewhite;
+    min-width: 760px;
+    margin: 0;
+}
+.banner {
+    background-color: rgb(255, 201, 128);
+    height: 5rem;
+}
+h1 {
+    margin: 0;
+    color: #2929c4;
+    line-height: 5rem;
+    text-align: center;
+    font-family: sans-serif;
+    text-shadow: 1px 1px 2px black;
+}
+h2 {
+    text-align: center;
+    margin-top: 2em;
+    color: darkred;
+}
+h5 {
+    margin: 0 0 1rem 0;
+    color: darkred;
+}
+.home a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block; /* could also use ul to make these links behave as block elements */
+    background-color: darkred;
+    color: white;
+    text-decoration: none;
+    width: 8rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    border-bottom-right-radius: 1.5em;
+}
+.home a:hover {
+    background-color: #cc4343;
+    color: yellow;
+}
+.main a {
+    display: inline-block;
+    background-color: #38346a;
+    color: white;
+    text-decoration: none;
+    margin-top: 3em;
+    width: 8rem;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    text-align: center;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+.main a:hover {
+    background-color: #9da2e2;
+    color: yellow;
+}
+.main p {
+    display: inline;
+    vertical-align: bottom;
+    margin-left: 1em;
+}
+.container {
+    margin: 1em auto 0 auto;
+    padding: 1.5rem;
+    width: 19rem;
+    background-color: #f5e2c8;
+    font-size: 1.2rem;
+    border: 1px solid rgba(190, 183, 147, 0.5);
+}
+#errOut {
+    color: red;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+#tabInput2 input {
+    width: 5em;
+    text-align: right;
+}
+#tabResults2 input {
+    width: 13em;
+    text-align: right;
+}
+#tabResults2 th:nth-child(1) {
+    text-align: left;
+}
+#tabInput3 input {
+    text-align: right;
+}
+#tabInput3 label {
+    display: block;
+}
+.errOut {
+    color: red;
+    font-style: italic;
+    margin-top: .5rem;
+}
+#feedback {
+    margin: .5rem 0 .5rem 0;
+}

@@ -1,0 +1,193 @@
+/* external style sheet for hw7.html */
+body {
+    background-color: antiquewhite;
+    min-width: 760px;
+    margin: 0;
+}
+.banner {
+    background-color: rgb(255, 201, 128);
+    height: 5rem;
+}
+h1 {
+    margin: 0;
+    color: #2929c4;
+    line-height: 5rem;
+    text-align: center;
+    font-family: sans-serif;
+    text-shadow: 1px 1px 2px black;
+}
+h2 {
+    color: darkred;
+}
+.info p {
+    font-size: 1.2rem;
+}
+.home a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block; /* could also use ul to make these links behave as block elements */
+    background-color: darkred;
+    color: white;
+    text-decoration: none;
+    width: 8rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    border-bottom-right-radius: 1.5em;
+}
+.home a:hover {
+    background-color: #cc4343;
+    color: yellow;
+}
+.main {
+    margin: 3rem 0 0 3rem;
+}
+.main a {
+    display: inline-block;
+    background-color: #38346a;
+    color: white;
+    text-decoration: none;
+    width: 8rem;
+    height: 1.8rem;
+    line-height: 1.8em;
+    text-align: center;
+    border-radius: 1em;
+    margin-bottom: 2rem;
+}
+.main a:hover {
+    background-color: #9da2e2;
+    color: yellow;
+}
+.main h2::before {
+    content: attr(data-before); color:#2929c4; font-weight: bold;
+}
+.info {
+    margin-left: 1rem;
+}
+.container {
+    margin: 3rem auto 0 auto;
+    padding: 1.5rem;
+    width: 30rem;
+    border: 1px solid rgba(190, 183, 147, 0.5);
+    background-color: #f5e2c8;
+}
+form div {
+    padding: .5rem;
+}
+#myForm input {
+    margin-right: .5rem;
+}
+#myForm select {
+    margin-right: .5rem;
+}
+.blue {
+    background-color: blue;
+    min-width: 760px;
+    margin: 0;
+}
+.green {
+    background-color: green;
+    min-width: 760px;
+    margin: 0;
+}
+.purple {
+    background-color: purple;
+    min-width: 760px;
+    margin: 0;
+}
+.aquaContainer {
+    margin: 3rem auto 0 auto;
+    padding: 1.5rem;
+    width: 30rem;
+    border: 1px solid rgba(190, 183, 147, 0.5);
+    background-color: aqua;
+}
+.bisqueContainer {
+    margin: 3rem auto 0 auto;
+    padding: 1.5rem;
+    width: 30rem;
+    border: 1px solid rgba(190, 183, 147, 0.5);
+    background-color: bisque;
+}
+.yellowContainer {
+    margin: 3rem auto 0 auto;
+    padding: 1.5rem;
+    width: 30rem;
+    border: 1px solid rgba(190, 183, 147, 0.5);
+    background-color: yellow;
+}
+.cursive_h1 {
+    margin: 0;
+    color: #2929c4;
+    line-height: 5rem;
+    text-align: center;
+    font-family: cursive;
+    text-shadow: 1px 1px 2px black
+}
+.original_h1 {
+    margin: 0;
+    color: #2929c4;
+    line-height: 5rem;
+    text-align: center;
+    font-family: sans-serif;
+    text-shadow: 1px 1px 2px black;
+}
+.original_body {
+    background-color: antiquewhite;
+    min-width: 760px;
+    margin: 0;
+}
+.navContainer {
+    background-color: darkblue;
+    font-size: 1.5rem;
+    height: 2.8rem;
+}
+.navContainer ul {
+    width: 70rem;
+    list-style: none; /*sets list-style-type, list-style-position, and list-style-image*/
+    margin: 0 auto;
+}
+.navContainer ul li {
+    float: left; 
+    display: inline;
+    background-color: #2929c4;
+}
+.navContainer ul li:hover {
+    background-color: #4b52f7;
+}
+.navContainer ul li a {
+    display: block;
+    color: bisque;
+    text-decoration: none;
+    padding: .5rem 1.5rem;
+    border-right: 2px solid gray;
+    border-bottom: 1px solid gray;
+}
+.navContainer ul li:hover > a {
+    color: darkred;
+}
+.navContainer ul li:first-child a {
+    border-left: 2px solid gray;
+}
+.navContainer ul li ul {
+    padding: 0;
+    position: absolute;
+    width: 11rem;
+}
+.navContainer ul li ul li {
+    width: 10.9rem;
+}
+.navContainer ul li ul li:last-child {
+    border-bottom: none;
+}
+.navContainer ul li ul li a {
+    border-right: none;
+}
+.navContainer ul li ul li:hover a {
+    background-color: #4b52f7;
+    color: darkred;
+}
+.navContainer ul li ul.subMenu {
+    display: none;
+}

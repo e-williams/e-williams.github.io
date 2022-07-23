@@ -1,0 +1,91 @@
+/* external style sheet for hw8.html */
+body {
+    background-color: antiquewhite;
+    min-width: 760px;
+    margin: 0;
+}
+.banner {
+    background-color: rgb(255, 201, 128);
+    height: 5rem;
+}
+h1 {
+    margin: 0;
+    color: #2929c4;
+    line-height: 5rem;
+    text-align: center;
+    font-family: sans-serif;
+    text-shadow: 1px 1px 2px black;
+}
+.home a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block; /* could also use ul to make these links behave as block elements */
+    background-color: darkred;
+    color: white;
+    text-decoration: none;
+    width: 8rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    border-bottom-right-radius: 1.5em;
+}
+.home a:hover {
+    background-color: #cc4343;
+    color: yellow;
+}
+.main {
+    margin: 3rem 0 0 3rem;
+}
+.main a {
+    display: inline-block;
+    background-color: #38346a;
+    color: white;
+    text-decoration: none;
+    width: 8rem;
+    height: 1.8rem;
+    line-height: 1.8em;
+    text-align: center;
+    border-radius: 1em;
+    margin-bottom: 2rem;
+}
+.main a:hover {
+    background-color: #9da2e2;
+    color: yellow;
+}
+.description {
+    margin: 3rem auto 0 auto;
+    width: 50rem;
+}
+.description h2 {
+    text-align: center;
+    color: #d33900;
+}
+.description p {
+    text-align: left;
+    margin-top: .5rem;
+}
+h4 {
+    margin-top: .7rem;
+    color: #d33900;
+}
+.container {
+    margin: 2rem auto 0 auto;
+    padding: 1.5rem;
+    width: 20rem;
+    border: 1px solid rgba(190, 183, 147, 0.5);
+    background-color: #f5e2c8;
+}
+.container p:last-child {
+    font-style: italic;
+    color: rgb(103, 103, 103);
+    padding-top: .1rem;
+}
+table {
+    border-spacing: 0 .5rem;
+}
+table tr td:first-child {
+    font-weight: bold;
+    color: #d33900;
+    width: 10rem;
+}
