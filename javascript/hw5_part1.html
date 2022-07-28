@@ -5,8 +5,8 @@
     <meta name="description" content="This is Part 1 of Homework 5 for CNIT133.">
     <title>CNIT133 Homework 5, Part 1</title>
     <link rel="stylesheet" type="text/css" href="hw5.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>   <!-- script for accessing the jQuery library - wont work if use 3.4.1-->
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>   <!-- script for jQuery validation of input -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>   <!-- script for accessing the jQuery library - won't work if use 3.4.1-->
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.6.2/jquery.validate.min.js"></script>   <!-- script for jQuery validation of input -->
     <script>
         // validate form entries
         $(document).ready(function(){   //code will only run once the Document Object Model (DOM) is ready
@@ -20,7 +20,7 @@
                 /* the following is needed for placing an error message after the raio and checkbox elements */
                 errorPlacement: function(error, element) {
                     if ( element.is(":radio") || element.is(":checkbox")) {
-                        error.appendTo( element.parent());
+                        error.appendTo(element.parent());
                     }
                     else {
                         error.insertAfter(element);
