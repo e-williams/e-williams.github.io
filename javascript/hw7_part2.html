@@ -7,31 +7,18 @@
     <link rel="stylesheet" type="text/css" href="hw7.css"> <!-- type specifies Internet Media type; text/css is used for external style sheets -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-        //this script produces sliding down and up action of sub-menu
-        $(document).ready(function(){
-            $('div li ul').hide();
-            $('div li').hover(
-                function () {
-                    $('ul', this).stop().slideDown(200);
-                },
-                function () {
-                    $('ul', this).stop().slideUp(200);
-                }
-            );
-        });
-        
        //this script produces fading in and out action of sub-menu 
-/*     $(document).ready(function(){
+       $(document).ready(function(){
            $('div li ul').hide();
            $('div li').hover(
                function (){
-                   $('ul', this).fadeIn();
+                   $('ul', this).fadeIn(); // this selects the element that received the event
                },
                function (){
                    $('ul', this).fadeOut();
                }
            );
-       });*/
+       });
     </script>
 </head>
 <body>
