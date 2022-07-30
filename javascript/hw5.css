@@ -63,9 +63,15 @@ h4 {
 .container {
     margin: 3rem auto 0 auto;
     padding: 1.5rem;
-    width: 48rem;
+    width: 33rem;
     background-color: #f5e2c8;
     border: 1px solid rgba(190, 183, 147, 0.5);
+}
+.container p {
+    width: 32rem;
+    font-style: italic;
+    color: rgb(103, 103, 103);
+    padding-top: .1rem;
 }
 .container_p2 {
     margin: 3rem auto 0 auto;
