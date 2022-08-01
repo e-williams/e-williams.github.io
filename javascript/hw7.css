@@ -140,11 +140,11 @@ form div {
 }
 .navContainer {
     background-color: darkblue;
-    font-size: 1.5rem;
-    height: 2.8rem;
+    font-size: 1.3rem;
+    height: 2.55rem;
 }
 .navContainer ul {
-    width: 70rem;
+    width: 63rem;
     list-style: none; /*sets list-style-type, list-style-position, and list-style-image*/
     margin: 0 auto;
 }
@@ -173,10 +173,36 @@ form div {
 .navContainer ul li ul {
     padding: 0;
     position: absolute;
-    width: 11rem;
 }
-.navContainer ul li ul li {
-    width: 10.9rem;
+.navContainer ul li:nth-child(2) ul {
+    width: 12.1rem;
+}
+.navContainer ul li:nth-child(3) ul {
+    width: 8.35rem;
+}
+.navContainer ul li:nth-child(4) ul {
+    width: 13.6rem;
+}
+.navContainer ul li:nth-child(5) ul {
+    width: 6.75rem;
+}
+.navContainer ul li:nth-child(6) ul {
+    width: 7.15rem;
+}
+.navContainer ul li:nth-child(2) ul li {
+    width: 12rem;
+}
+.navContainer ul li:nth-child(3) ul li {
+    width: 8.25rem;
+}
+.navContainer ul li:nth-child(4) ul li {
+    width: 13.5rem;
+}
+.navContainer ul li:nth-child(5) ul li {
+    width: 6.65rem;
+}
+.navContainer ul li:nth-child(6) ul li {
+    width: 7.05rem;
 }
 .navContainer ul li ul li:last-child {
     border-bottom: none;
