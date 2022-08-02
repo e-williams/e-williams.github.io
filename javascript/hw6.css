@@ -38,12 +38,20 @@ h4 {
     background-color: #cc4343;
     color: yellow;
 }
+#box {
+    margin-top: 3em;
+    white-space: normal;
+}
+.main {
+    white-space: nowrap;
+}
 .main a {
     display: inline-block;
     background-color: #38346a;
     color: white;
     text-decoration: none;
     margin-top: 3em;
+    margin-right: 1em;
     width: 8rem;
     height: 1.8rem;
     line-height: 1.8em;
@@ -55,10 +63,14 @@ h4 {
     background-color: #9da2e2;
     color: yellow;
 }
+#extend {
+    margin-top: 0;
+    margin-bottom: 5rem;
+    float: left;
+}
 .main p {
     display: inline;
-    vertical-align: bottom;
-    margin-left: 1em;
+    vertical-align: text-top;
 }
 .container {
     margin: 3rem auto 0 auto;

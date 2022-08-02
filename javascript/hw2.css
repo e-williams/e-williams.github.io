@@ -64,7 +64,7 @@ h4 {
 }
 .main p {
     display: inline;
-    vertical-align: bottom;
+    vertical-align: text-top;
     margin-left: 1em;
 }
 .output1 {

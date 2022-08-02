@@ -38,6 +38,9 @@ h4 {
     background-color: #cc4343;
     color: yellow;
 }
+.main {
+    white-space: nowrap;
+}
 .main a {
     display: inline-block;
     background-color: #38346a;
@@ -57,7 +60,7 @@ h4 {
 }
 .main p {
     display: inline;
-    vertical-align: bottom;
+    vertical-align: text-top;
     margin-left: 1em;
 }
 .container {
