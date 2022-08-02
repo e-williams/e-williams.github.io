@@ -42,6 +42,9 @@ h4 {
     background-color: #cc4343;
     color: yellow;
 }
+.main {
+    white-space: nowrap;
+}
 .main a {
     display: inline-block;
     background-color: #38346a;
