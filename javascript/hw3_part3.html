@@ -77,16 +77,16 @@
         <h1>Functions: Part 3</h1>
     </div>
     <h2>Temperature Conversion Calculator</h2>
-    <div class="container_p3">
+    <div class="containerP3">
         <h5>Enter a number for either degrees Farenheit or Celcius, and use the beneath submit button to convert to the alternative units:</h5>
         <form name="myform" id="myform"> <!-- id used in jQuery ("#myform") and name used in document.myform... -->
             <table id="tabInput3">
                 <tr>
                     <td><label for="temp1">Enter &deg;F:</label> <!--label "for" attribute refers to element id -->
-                        <div class="errOut"><input type="text" id="temp1" name="temp1" size="25"></div></td> <!-- size attribute would not work with type="number" -->
+                        <div class="errOut"><input type="text" id="temp1" name="temp1" size="20"></div></td> <!-- size attribute would not work with type="number" -->
                     <td></td>
                     <td><label for="temp2">Enter &deg;C:</label>
-                        <div class="errOut"><input type="text" id="temp2" name="temp2" size="25"></div></td>
+                        <div class="errOut"><input type="text" id="temp2" name="temp2" size="20"></div></td>
                 </tr>
                 <tr>
                     <td style="text-align:center;"><input type="button" onclick="farToCel()" value="SUBMIT"></td>
@@ -96,7 +96,7 @@
             </table>
             <br>
             Results:
-            <input type="text" name="result" readonly size="48">
+            <input type="text" name="result" readonly size="42.5">
         </form> 
     </div>
 </body>
