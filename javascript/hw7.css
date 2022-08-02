@@ -42,6 +42,7 @@ h2 {
 }
 .main {
     margin: 3rem 0 0 3rem;
+    width: 46rem;
 }
 .main a {
     display: inline-block;
