@@ -1,4 +1,8 @@
 /* external style sheet for hw2.html */
+html {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
 body {
     background-color: antiquewhite;
     min-width: 760px;
