@@ -1,8 +1,4 @@
 /* external style sheet for hw2.html */
-html {
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
-}
 body {
     background-color: antiquewhite;
     min-width: 760px;
@@ -11,6 +7,7 @@ body {
 .banner {
     background-color: rgb(255, 201, 128);
     height: 5rem;
+    width: 100%;
 }
 h1 {
     margin: 0;
