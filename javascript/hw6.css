@@ -1,4 +1,8 @@
 /* external style sheet for hw6.html */
+html {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
 body {
     background-color: antiquewhite;
     min-width: 760px;
@@ -40,7 +44,7 @@ h4 {
 }
 .box {
     margin-top: 3em;
-    width: 44em;
+    width: 46em;
 }
 .main a {
     display: block;
