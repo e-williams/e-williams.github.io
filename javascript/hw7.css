@@ -1,8 +1,4 @@
 /* external style sheet for hw7.html */
-html {
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
-}
 body {
     background-color: antiquewhite;
     min-width: 760px;
@@ -144,14 +140,15 @@ form div {
     margin: 0;
 }
 .navContainer {
-    background-color: darkblue;
-    font-size: 1.3rem;
-    height: 2.55rem;
+    /*background-color: darkblue;*/
+    font-size: 1.2rem;
+    height: 2.45rem;
 }
 .navContainer ul {
-    width: 63rem;
+    width: 52.2rem;
     list-style: none; /*sets list-style-type, list-style-position, and list-style-image*/
     margin: 0 auto;
+    padding: 0;
 }
 .navContainer ul li {
     float: left; 
@@ -165,7 +162,7 @@ form div {
     display: block;
     color: bisque;
     text-decoration: none;
-    padding: .5rem 1.5rem;
+    padding: .5rem 1.1rem;
     border-right: 2px solid gray;
     border-bottom: 1px solid gray;
 }
@@ -180,7 +177,7 @@ form div {
     position: absolute;
 }
 .navContainer ul li:nth-child(2) ul {
-    width: 12.1rem;
+    width: 10.1rem;
 }
 .navContainer ul li:nth-child(3) ul {
     width: 8.35rem;
@@ -195,7 +192,7 @@ form div {
     width: 7.15rem;
 }
 .navContainer ul li:nth-child(2) ul li {
-    width: 12rem;
+    width: 10rem;
 }
 .navContainer ul li:nth-child(3) ul li {
     width: 8.25rem;
