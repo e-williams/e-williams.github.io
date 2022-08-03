@@ -38,19 +38,17 @@ h4 {
     background-color: #cc4343;
     color: yellow;
 }
-#box {
+.box {
     margin-top: 3em;
-    white-space: normal;
-}
-.main {
-    white-space: nowrap;
+    width: 44em;
 }
 .main a {
-    display: inline-block;
+    display: block;
     background-color: #38346a;
     color: white;
     text-decoration: none;
-    margin-top: 3em;
+    margin-top: 0;
+    margin-bottom: 2em;;
     margin-right: 1em;
     width: 8rem;
     height: 1.8rem;
@@ -58,15 +56,11 @@ h4 {
     text-align: center;
     border-top-right-radius: 1em;
     border-bottom-right-radius: 1em;
+    float: left;
 }
 .main a:hover {
     background-color: #9da2e2;
     color: yellow;
-}
-#extend {
-    margin-top: 0;
-    margin-bottom: 5rem;
-    float: left;
 }
 .main p {
     display: inline;

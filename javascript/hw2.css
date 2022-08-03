@@ -1,7 +1,4 @@
 /* external style sheet for hw2.html */
-html {
-    width: 100%;
-}
 body {
     background-color: antiquewhite;
     min-width: 760px;
@@ -45,21 +42,25 @@ h4 {
     background-color: #cc4343;
     color: yellow;
 }
-.main {
-    white-space: nowrap;
+.box {
+    margin-top: 3em;
+    width: 44em;
 }
 .main a {
-    display: inline-block;
+    display: block;
     background-color: #38346a;
     color: white;
     text-decoration: none;
-    margin-top: 3em;
+    margin-top: 0;
+    margin-bottom: 2em;
+    margin-right: 1em;
     width: 8rem;
     height: 1.8rem;
     line-height: 1.8em;
     text-align: center;
     border-top-right-radius: 1em;
     border-bottom-right-radius: 1em;
+    float: left;
 }
 .main a:hover {
     background-color: #9da2e2;
@@ -68,7 +69,6 @@ h4 {
 .main p {
     display: inline;
     vertical-align: text-top;
-    margin-left: 1em;
 }
 .output1 {
     text-align: center;
