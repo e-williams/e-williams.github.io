@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="D3 homework">
+<title>D3 Homework</title>
+<style>
+body {
+  background: #1a1a1a;
+  color : #6b6b6b;
+  padding : 10px;
+}
+#title {
+  font: 1.4rem arial;
+  fill: #4aaeea;
+}
+.axisTitles {
+  text-anchor: middle;
+  font: 1.7rem arial;
+  fill: darkseagreen;
+  letter-spacing: .15rem;
+}
+#chart rect {
+  fill: #4aaeea;
+}
+.leftAxisText text {
+  font: 11px sans-serif;
+  fill: white;
+  text-anchor: end;
+}
+.bottomAxisText text {
+  font: 11px sans-serif;
+  fill: white;
+  text-anchor: middle;
+}
+</style>
+</head>
+
+<body>
+<div id="chart"></div> 
+</body>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+var termArray = [];
+var studentArray = [];
+d3.json('hw3data.json') // read data from json file
+  .then (function(data) {
+    for (key in data) {
+      termArray.push(data[key].term)
+    }
+    for (key in data) {
+      studentArray.push(data[key].students)
+    }
+    // set values for margin around graph (within SVG space)
+    var margin = { top: 80, right: 30, bottom: 60, left: 100 };
+    // set height and width of graph (within SVG space)
+    var height = 500 - margin.top - margin.bottom;
+    var width = 750 - margin.left - margin.right;
+    // set verticalGuide: makes y-axis values go bottom to top
+    /* use D3 scale functions to reset data array into range that will fit
+       within chart area */
+    var verticalGuide = d3.scaleLinear()
+      .domain([0, d3.max(studentArray)])
+      .range([height, 0]);
+    var yS = d3.scaleLinear()
+      .domain([0, d3.max(studentArray)])
+      .range([0, height]);
+    var xS = d3.scaleBand()
+      .domain(termArray.map(function(d) {return d;}))
+      .range([0, width])
+      .padding(0.1);
+    var graph = d3.select('#chart')
+      .append('svg')
+      .attr('width', width + margin.left + margin.right)
+			.attr('height', height + margin.top + margin.bottom)
+      .append('g')
+      .attr('transform', 'translate('+ margin.left +', '+ margin.top +')');
+    var tooltip = d3.select('body')
+      .append('div')
+      .style('position', 'absolute')
+      .style('padding', '10px')
+      .style('color', 'black')
+      .style('background', 'white')
+      .style('border', 'solid')
+      .style('border-width', '2px')
+      .style('border-radius', '5px')
+      .style('opacity', 0);
+    // add titles for axes
+    graph.append("text")
+		   .attr('transform', 'translate(0,0)')
+		   .attr('x', 6)
+		   .attr('y', -margin.top/2)
+		   .attr("id", "title")
+		   .text('CNIT ENROLLMENT AT CCSF, SPRING 20016 - FALL 2018');
+    graph.append('g')
+		  .attr('transform', 'translate(0,' + height + ')')
+		  .append('text')
+      .attr('class', 'axisTitles')
+      .attr('text-anchor', 'middle')
+		  .attr('y', margin.bottom)
+		  .attr('x', width - width/2)
+		  .text('Term');
+    graph.append('g')
+		   .append("text")
+		   .attr('transform', 'rotate(-90)')
+       .attr('class', 'axisTitles')
+       .attr('text-anchor', 'middle')
+		   .attr('y', -48)
+		   .attr('x', - ( height/2 ))
+		   .attr('dy', 0)
+		   .text('Students');
+    graph.selectAll('rect') // CREATING rect elements with append()
+      .data(data)
+      .enter() // to create new elements
+      .append('rect')
+      .attr('width', xS.bandwidth())
+      // make height a function of students data field scale
+      .attr('height', function(d) { return yS(d.students); })
+      // make x positions of bars a function of term data on x scale
+      .attr('x', function(d) { return xS(d.term); })
+      /* make y positions of bars a function of height & students data on y
+         scale */
+      .attr('y', function(d) { return height - yS(d.students); })
+      // add mouseover and mouseout event for tooltip
+      .on('mouseover', function(event, d) {
+        const[x, y] = d3.pointer(event)
+        tooltip.transition()
+        .style('opacity', .8) // tooltip box
+        var termValue = d3.select(this).datum().term;
+        var studentsValue = d3.select(this).datum().students;
+        tooltip.html('Term: ' + termValue + '<br>' + 'Students: ' +
+          studentsValue)
+        .style('left', (x + 30) + 'px')
+        .style('top', (y - 26) + 'px')
+        d3.select(this) // rect elements
+        .style('fill', 'lightgreen')
+      })
+      .on("mousemove", () =>
+            tooltip
+              .style("top", event.pageY - 80 + "px")
+              .style("left", event.pageX + 0 + "px")
+      )
+      .on('mouseout', function(event, d) {
+        d3.select(this)
+        .style('fill', '#4aaeea')
+        tooltip.style('opacity', 0)
+      });
+    graph.append('g') // create separate group element for y-axis
+      .call(d3.axisLeft(yS).scale(verticalGuide).ticks(4))
+      .attr('class', ' leftAxisText');
+    graph.append('g') // create separate group element for x-axis
+      .call(d3.axisBottom(xS))
+      .attr('transform', 'translate(0, ' + height + ')')
+      .attr('class', ' bottomAxisText');
+  }); // end .then()
+</script>
