@@ -7,9 +7,6 @@ import ResultsContainer from "./ResultsContainer";
 function SearchPageContainer() {
   const [vehicleCheckboxFilters, setVehicleCheckboxFilters] = useState([]);
   const [selectedPrice, setSelectedPrice] = useState(0);
-    // [state value variable, function to change state] = 0 initial state
-  // const inputRef = useRef("hidden");
-
 
   const findVehicleIdsMatchingCheckboxFilters = useMemo(
     () => {
@@ -18,13 +15,6 @@ function SearchPageContainer() {
       // Array of selected filters is initially empty until user input. Then,
       // vehicleCheckboxFilters is updated and this function is re-invoked, due
       // to the change in the dependency array.
-      // useMemo produces a memoized CONSTANT for [vehicleIdsMatchingFlilters].
-      // CONSTANT is recalculated only if the value of vehicleFilters changes.
-
-      // Need to match data values in vehicleData to elements in vehicleFilters.
-      // Parse vehicleData: convert objects within container array to arrays of
-      // data values so can iterate over them and match values with filters,
-      // using Array.prototype.includes() for example.
 
       const vehicleDataValues = vehicleData.map((objectData) =>
         Object.values(objectData)
@@ -37,7 +27,7 @@ function SearchPageContainer() {
       // [[0, "TESLA", ...], [1, "Kia", ...]]
 
       // Get only vehicle IDs matching filters so can use IDs to match original
-      // vehicle object data to pass to ResultsContainer for better output.
+      // vehicle object data to pass to ResultsContainer for output.
 
       const getVehicleIdsForCheckbox = () => {
         const vehicleIdsMatchingFilters = [];
@@ -67,21 +57,10 @@ function SearchPageContainer() {
     (e) => {
       // Function that creates an array of all selected filters and as output,
       // changes the state of vehicleCheckboxFilters.
-      // Function is re-invoked whenever a user clicks on a filter.
-      // useCallback: upon subsequent renders, if the dependencies haven't
-      // changed, returns the stored FUNCTION; otherwise returns (not invokes)
-      // re-rendered function.
-      // e is parameter name taking on HTML Event() interface.
 
       // If a checkbox is checked:
-      if (e.target.checked) { // if checked = true
+      if (e.target.checked) {
         setVehicleCheckboxFilters([...vehicleCheckboxFilters, e.target.id]);
-        // checked is <input> attribute = boolean value.
-        // Event.target = target property of HTML Event interface - returns
-        // the element where the event occured.
-        // VALUE of <input> attribute id is added to vehicleFilters.
-        // Spread syntax ... to add element id value to new array state; not
-        // an array pointing to vehicleFilters memory.
       }
       // If a checkbox is unchecked:
       else if (e.target.checked === false) {
@@ -89,11 +68,9 @@ function SearchPageContainer() {
         const filterIndex = vehicleCheckboxFilters.indexOf(e.target.id);
         console.log({ filterIndex });
         const copyVehicleCheckboxFilters = [...vehicleCheckboxFilters];
-          // So array state is new and not pointing to vehicleFilters memory.
         copyVehicleCheckboxFilters.splice(filterIndex, 1);
-          // Deletes 1 element at position filterIndex.
         setVehicleCheckboxFilters(copyVehicleCheckboxFilters);
-          // ["Model 3", "Kia", ...]
+          // ["4-door sedan", "5-door crossover", ...]
       }
     }, [vehicleCheckboxFilters] // dependency array
   );
@@ -106,8 +83,6 @@ function SearchPageContainer() {
       const vehicleIdsMatchingPrice = [];
 
       vehicleData.forEach((vehicle) => {
-        // destructured form:
-        // vehicleData.forEach(({base_price}) => {
         const vehiclePrice = vehicle.base_price;
 
         if (vehiclePrice <= selectedPrice) {
@@ -125,19 +100,17 @@ function SearchPageContainer() {
     const duplicateIds = [
       ...findVehicleIdsMatchingCheckboxFilters,
       ...findVehicleIdsMatchingSelectboxMaxPrice,
-    ];
-      // spread syntax used to combine arrays. Combination contains possible
+    ];e
       // duplicate IDs of same vehicles matching checkboxes & selectboxes.
 
-    const uniqueIds = new Set(duplicateIds); // new to create a new set
-      // Set eliminates duplicate IDs. A value in a set can occur only once.
+    const uniqueIds = new Set(duplicateIds);
+      // Set eliminates duplicate IDs.
 
     return Array.from(uniqueIds);
       // Array.from() creates shallow copy of Array instance from an iterable.
   }
 
   // Function to handle display of all vehicles if no filters selected.
-  // 
   const handleResultsRender = () => {
     if (vehicleCheckboxFilters.length === 0 &&
          (selectedPrice === 0 || selectedPrice === "unlimited")) {
@@ -159,13 +132,6 @@ function SearchPageContainer() {
             )}
           />
         ))
-          // map used to produce ResultsContainer for each iteration of
-          // vehicleId over JSON object list. Each child element in a mapped
-          // list needs a unique key prop.
-          // filteredVehicleSpecs is property assigned to output of find(),
-          // which returns the 1st element in vehicleData that meets the
-          // condition, in this case the object for a vehicle containing keys
-          // and values.
       );
     } else {
       return (
