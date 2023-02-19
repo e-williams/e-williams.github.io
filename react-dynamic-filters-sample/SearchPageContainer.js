@@ -18,7 +18,7 @@ function SearchPageContainer() {
       // to the change in the dependency array.
       
       // Parse vehicleData: convert objects within container array to arrays of
-      // data values so can iterate over them and match values with filters
+      // data values so can iterate over them and match values with filters.
 
       const vehicleDataValues = vehicleData.map((objectData) =>
         Object.values(objectData)
