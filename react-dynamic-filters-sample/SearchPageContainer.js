@@ -42,8 +42,7 @@ function SearchPageContainer() {
           });
         });
         console.log(
-          "VehicleIdsMatchingCheckboxFilters are::",
-          vehicleIdsMatchingFilters
+          "VehicleIdsMatchingCheckboxFilters are::", vehicleIdsMatchingFilters
         );
 
         return vehicleIdsMatchingFilters; // [0, 2]
