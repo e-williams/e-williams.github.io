@@ -10,7 +10,8 @@ function SearchPageContainer() {
 
   const findVehicleIdsMatchingCheckboxFilters = useMemo(
     () => {
-      console.log("The filters have changed::: ", vehicleCheckboxFilters);
+      console.log("The checkbox filters have changed::: ",
+        vehicleCheckboxFilters);
       // Function that finds all vehicle IDs that match the selected filters.
       // Array of selected filters is initially empty until user input. Then,
       // vehicleCheckboxFilters is updated and this function is re-invoked, due
