@@ -72,7 +72,7 @@ function SearchPageContainer() {
         setVehicleCheckboxFilters(copyVehicleCheckboxFilters);
           // ["4-door sedan", "5-door crossover", ...]
       }
-    }, [vehicleCheckboxFilters] // dependency array
+    }, [vehicleCheckboxFilters]
   );
 
   const findVehicleIdsMatchingSelectboxMaxPrice = useMemo((
