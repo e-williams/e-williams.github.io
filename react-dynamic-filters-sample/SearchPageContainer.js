@@ -23,10 +23,7 @@ function SearchPageContainer() {
       const vehicleDataValues = vehicleData.map((objectData) =>
         Object.values(objectData)
       );
-      console.log(
-        "vehicleDataValues for checkbox after parsing::",
-        vehicleDataValues
-      );
+      console.log("vehicleDataValues after parsing::", vehicleDataValues);
       // Produces an array of vehicle data arrays.
       // [[0, "TESLA", ...], [1, "Kia", ...]]
 
