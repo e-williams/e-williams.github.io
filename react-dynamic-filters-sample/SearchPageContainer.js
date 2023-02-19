@@ -82,12 +82,11 @@ function SearchPageContainer() {
 
       const vehicleIdsMatchingPrice = [];
 
-      vehicleData.forEach((vehicle) => {
-        const vehiclePrice = vehicle.base_price;
+      vehicleData.forEach(({base_price, id}) => {
 
-        if (vehiclePrice <= selectedPrice) {
+        if (base_price <= selectedPrice) {
           // selectedPrice is state value
-          vehicleIdsMatchingPrice.push(vehicle.id);
+          vehicleIdsMatchingPrice.push(id);
         }
       });
 
