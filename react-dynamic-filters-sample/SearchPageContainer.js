@@ -83,9 +83,8 @@ function SearchPageContainer() {
       const vehicleIdsMatchingPrice = [];
 
       vehicleData.forEach(({base_price, id}) => {
-        // destructured vehicleData.base_price
+        // destructured vehicleData.base_price = parameter
         if (base_price <= selectedPrice) {
-          // selectedPrice is state value
           vehicleIdsMatchingPrice.push(id);
         }
       });
