@@ -98,7 +98,7 @@ function SearchPageContainer() {
     const duplicateIds = [
       ...findVehicleIdsMatchingCheckboxFilters,
       ...findVehicleIdsMatchingSelectboxMaxPrice,
-    ];e
+    ];
       // duplicate IDs of same vehicles matching checkboxes & selectboxes.
 
     const uniqueIds = new Set(duplicateIds);
