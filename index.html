@@ -131,6 +131,9 @@ section p {
   padding-left: 1rem;
   margin: 0;
 }
+.flexbox {
+  display: flex;
+}
 .flexbox_1 {
   display: flex;
   font-family: "Roboto", Verdana, sans-serif;
@@ -141,17 +144,17 @@ section p {
   padding-bottom: 1px;
 }
 #flexitem_1-1 {
-  flex: 0 0 228px;
+  flex: 0 0 306px;
   margin: 0;
   text-align: center;
 }
 #flexitem_1-2 {
-  flex: 0 0 110px;
+  flex: 0 0 154px;
   margin: 0;
   text-align: right;
 }
 #flexitem_1-3 {
-  flex: 0 0 139px;
+  flex: 0 0 168px;
   margin: 0;
   text-align: right;
 }
@@ -167,17 +170,34 @@ section p {
   flex: 0 0 84px;
 }
 #flexitem_2-2 {
-  flex: 0 0 88px;
+  flex: 0 0 68px;
 }
 #flexitem_2-3 {
-  flex: 0 0 100px;
+  flex: 0 0 88px;
 }
 #flexitem_2-4 {
-  flex: 0 0 130px;
+  flex: 0 0 120px;
+}
+#flexitem_2-5 {
+  flex: 0 0 96px;
+}
+#flexitem_2-6 {
+  flex: 0 0 98px;
 }
 #flexitem_3-1 {
-  flex: 0 0 286px;
+  flex: 0 0 276px;
   line-height: 1.2rem;
+}
+#flexitem_4-1 {
+  flex: 0 0 276px;
+}
+.bottom_padding {
+  padding-bottom: .7rem;
+}
+#font_styling {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: .89rem;
+  color:rgb(91, 91, 91);
 }
 .table_1 {
   width: 680px;
@@ -246,95 +266,27 @@ footer {
     </header>
     <div id="content">
       <section>
-        <h3>Objective</h3>
-        <p>
-          I have a passion for technology and an aptitude for building elegant processes and designs. I&#39;m highly interested in the needs and preferences of the end user, and in understanding how to meet them. To that end, I seek a front-end engineer role that would allow me to both leverage and develop my skills and experience in an impactful way.
-        </p>
-      </section>
-      <section class="section_padding">
-        <hr>
         <h3>Profile</h3>
-        <ul class="unindented_ul">
+        <ul class="indented_ul">
           <li>
-            Detail-oriented with exceptional analytical, problem-solving and communication skills, and an ability to thrive in diverse environments
+            Passionate about technology and innovation, with an aptitude for building elegant processes and designs
+          </li>
+          <li>
+            Detail-oriented with exceptional analytical, problem-solving and communication skills
           </li>
           <li>
             Updated skills and achievement in modern web application and programming languages
           </li>
           <li>
-            Proven success in managing and training people, and in maximizing the output of a team to fulfill strict goals under high-pressure scenarios and stringent regulations
+            Experience developing web apps following the Agile life cycle
           </li>
           <li>
-            Record of increasing responsibility within each career position and field
+            Proven success in managing and training people, and in maximizing the output of a team under high-pressure scenarios
           </li>
-        </ul>
-      </section>
-      <section class="section_padding">
-        <hr>
-        <h3>Education</h3>
-        <ul class="unindented_ul">
           <li>
-            Certificate, Web Application Programming, City College of San Francisco CA, GPA 4.0
+            Record of increasing responsibility within each role
           </li>
         </ul>
-        <ul class="unindented_ul">
-          <li>Extended Studies, GPA 4.0</li>
-        </ul>
-        <ul class="indented_ul">
-          <li>Differential Equations, Skyline College, San Bruno CA</li>
-          <li>C++, Multivariable Calculus, City College of San Francisco CA</li>
-        </ul>
-        <ul class="unindented_ul">
-          <li>
-            B.S., Ecology and Evolution, University of California, Santa Barbara CA, GPA 3.5
-          </li>
-        </ul>
-      </section>
-      <section class="section_padding">
-        <hr>
-        <h3>Technical Skills</h3>
-        <div class="flexbox_1">
-          <h4 id="flexitem_1-1">Development</h4>
-          <h4 id="flexitem_1-2">Office</h4>
-          <h4 id="flexitem_1-3">Design</h4>
-        </div>
-        <div class="flexbox_2">
-          <div id="flexitem_2-1">
-            <div>Javascript</div>
-            <div>Node.js</div>
-            <div>Python</div>
-            <div>C++</div>
-            <div>Dart</div>
-          </div>
-          <div id="flexitem_2-2">
-            <div>React</div>
-            <div>Material UI</div>
-            <div>Vue.js</div>
-            <div>Angular</div>
-            <div>jQuery</div>
-            <div>D3.js</div>
-          </div>
-          <div id="flexitem_2-3">
-            <div>HTML/CSS</div>
-            <div>MySQL</div>
-            <div>AWS</div>
-            <div>Unix/Linux</div>
-            <div>Git/GitHub</div>
-          </div>
-          <div id="flexitem_2-4">
-            <div>Word</div>
-            <div>Excel</div>
-            <div>Power Point</div>
-            <div>Pages</div>
-            <div>Docs</div>
-            <div>Sheets</div>
-          </div>
-          <div>
-            <div>Photoshop</div>
-            <div>Illustrator</div>
-            <div>miro</div>
-          </div>
-        </div>
       </section>
       <section class="section_padding">
         <hr>
@@ -347,43 +299,32 @@ footer {
         </table>
         <ul class="indented_ul">
           <li>
-            Had the privilege of participating in the first-of-its-kind Custom Micro-Internship awarded by Open Avenues Foundation
+            Designed and developed a dynamic website with React and Material UI, from concept to deployment
           </li>
           <li>
-            Designed and developed a dynamic website with React and Material UI, from inception to deployment
-          </li>
-          <li>
-            Met with a Global Talent Fellow (industry professional) each week to review coding progress, implement improvements, discuss development options and establish new objectives
+            Following Agile methodology, set up weekly meetings with a Global Talent Fellow (industry professional) to review coding updates, discuss improvement techniques and establish new objectives
           </li>
           <li>
             Managed version control and collaboration with Git and GitHub
           </li>
           <li>
-            Continue development of the project and currently implementing a back end
+            Continue to further develop the project; currently implementing a back end
           </li>
         </ul>
         <br>
         <table class="table_1">
           <tr>
             <th>Senior Vessel Master, 500 Tons, Red and White Fleet</th>
-            <th>2006 - Present</th>
+            <th>2006 - 2023</th>
           </tr>
         </table>
         <ul class="indented_ul">
           <li>
-            Responsible for the operation and crew management of six, 100 ton vessels, including the Enhydra, the first fully hybrid-electric passenger ferry of its kind
+            Responsible for operation and crew management of six, 100 ton vessels, including the Enhydra, the first fully hybrid-electric passenger ferry of its type
           </li>
-          <li>Oversee and implement customer service procedures and needs</li>
-          <li>Ensure compliance with U.S. Coast Guard regulations</li>
+          <li>Ensured compliance with U.S. Coast Guard regulations</li>
           <li>
-            Conduct routine drills and crew training, and periodically obtain professional certifications
-          </li>
-          <li>Suggest improvements to operational protocols</li>
-          <li>
-            Trainer of new Masters (Captains) in vessel operation; teach courses in navigation and seamanship
-          </li>
-          <li>
-            Became the first employee to successfully transition to Captain from Deckhand
+            Trained new Captains in vessel operation
           </li>
         </ul>
         <br>
@@ -404,7 +345,9 @@ footer {
         <br>
         <table class="table_1">
           <tr>
-            <th>Research Associate, University of California, San Francisco CA</th>
+            <th>
+              Research Associate, University of California, San Francisco CA
+            </th>
             <th>2003 - 2005</th>
           </tr>
         </table>
@@ -415,9 +358,6 @@ footer {
           <li>
             Appointed Director of New Employee Training for the Magnetic Resonance Unit Imaging Group
           </li>
-          <li>
-            Acquired and processed brain imaging and spectroscopy data for a variety of studies
-          </li>
         </ul>
       </section>
       <section class="section_padding">
@@ -425,42 +365,133 @@ footer {
         <h3>Honors</h3>
         <div class="flexbox_3">
           <div id="flexitem_3-1">
+            <div>Open Avenues Foundation</div>
+            <br><br><br><br>
             <div>Red and White Fleet</div>
-            <br><br>
             <div>Professional Mariner Magazine</div>
-            <br><br>
+            <br>
             <div>University of California, San Francisco</div>
             <br>
             <div>University of California, Santa Barbara</div>
-            <br>
             <div>NASA</div>
             <br>
             <div>California Science Olympiad</div>
-            <br><br>
             <div>California Academy of Sciences</div>
           </div>
           <div>
             <ul class="unindented_ul">
+              <li>
+                Awarded their first Custom Micro-Internship of its kind, in which I was granted the freedom to design a web development project, and had access to an industry professional who provided oversight throughout the development process
+              </li>
               <li>Award for Excellence as Vessel Master</li>
-              <li>
-                Special acknowledgement for successful ocean rescue of a person “over the rail” of the Golden Gate Bridge
-              </li>
               <li id="prof_mariner">
-                Featured on the cover and in an article about the technology of the hybrid-electric ferry Enhydra <a href="https://professionalmariner.com/bay-areas-hybrid-newcomer-red-white-and-green-all-over/">(issue #235)</a>
+                Featured in an article about the technology of the ferry Enhydra <a href="https://professionalmariner.com/bay-areas-hybrid-newcomer-red-white-and-green-all-over/">(issue #235)</a>
               </li>
               <li>
-                Department of Radiology Award for Excellence as a magnetic resonance brain research associate
+                Department of Radiology Award for excellence in magnetic resonance brain research
               </li>
               <li>Dean&#39;s Honors List, senior year</li>
-              <li>California Educational Grant, freshman year</li>
               <li>
-                Winner for Western Region, United States in the NASA Shuttle Experiment Design Competition
+                Winner, Western Region - NASA Shuttle Experiment Design Competition
               </li>
               <li>
-                Winner of the Trajectory Competition - required the design and construction of a device for accurately launching projectiles onto a target
+                Winner - Trajectory Competition
               </li>
               <li>Award for achievement in behavioral sciences</li>
             </ul>
+          </div>
+        </div>
+      </section>
+      <section class="section_padding">
+        <hr>
+        <h3>Education</h3>
+        <div class="bottom_padding">
+          <ul class="unindented_ul">
+            <li id="font_styling">
+              Certificate, Web Application Programming, City College of San Francisco CA, GPA 4.0
+            </li>
+          </ul>
+          <div class="flexbox">
+            <div id="flexitem_4-1">
+              <ul class="indented_ul">
+                <li>JavaScript Frameworks</li>
+                <li>JavaScript jQuery &amp; Ajax</li>
+                <li>Python (Fundamental & Advanced)</li>
+              </ul>
+            </div>
+            <div>
+              <ul class="unindented_ul">
+                <li>HTML & CSS</li>
+                <li>Intro to SQL and NoSQL Databases</li>
+                <li>Intro to Unix/Linux</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="bottom_padding">
+          <ul class="unindented_ul">
+            <li id="font_styling">Extended Studies, GPA 4.0</li>
+          </ul>
+          <ul class="indented_ul">
+            <li>Differential Equations, Skyline College, San Bruno CA</li>
+            <li>C++, Multivariable Calculus, City College of San Francisco CA</li>
+          </ul>
+        </div>
+        <div class="bottom_padding">
+          <ul class="unindented_ul">
+            <li id="font_styling">
+              B.S., Ecology and Evolution, University of California, Santa Barbara CA, GPA 3.5
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="section_padding">
+        <hr>
+        <h3>Technical Skills</h3>
+        <div class="flexbox_1">
+          <h4 id="flexitem_1-1">Development</h4>
+          <h4 id="flexitem_1-2">Office</h4>
+          <h4 id="flexitem_1-3">Design</h4>
+        </div>
+        <div class="flexbox_2">
+          <div id="flexitem_2-1">
+            <div>Javascript</div>
+            <div>Python</div>
+            <div>C++</div>
+            <div>Dart</div>
+          </div>
+          <div id="flexitem_2-2">
+            <div>React</div>
+            <div>Vue.js</div>
+            <div>Angular</div>
+            <div>jQuery</div>
+          </div>
+          <div id="flexitem_2-3">
+            <div>Node.js</div>
+            <div>Material UI</div>
+            <div>D3.js</div>
+            <div>HTML/CSS</div>
+          </div>
+          <div id="flexitem_2-4">
+            <div>MySQL</div>
+            <div>Unix/Linux</div>
+            <div>Git/GitHub</div>
+            <div>AWS</div>
+          </div>
+          <div id="flexitem_2-5">
+            <div>Word</div>
+            <div>Excel</div>
+            <div>Power Point</div>
+          </div>
+          <div id="flexitem_2-6">
+            <div>Pages</div>
+            <div>Docs</div>
+            <div>Sheets</div>
+          </div>
+          <div>
+            <div>Photoshop</div>
+            <div>Illustrator</div>
+            <div>miro</div>
           </div>
         </div>
       </section>
